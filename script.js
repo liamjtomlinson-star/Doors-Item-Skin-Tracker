@@ -235,18 +235,20 @@ function createItemCard(item) {
   const row = document.createElement('div');
   row.className = 'card-row';
   // Price with icon
-  // Build an image element for the currency icon. Using an inline image
-  // allows for styling via CSS and avoids reliance on emoji fonts. The
-  // `knobIcon` constant points to the small WebP included in the site.
+  // Wrap the icon and text together so spacing between them can be
+  // controlled precisely via CSS. This avoids large gaps between the
+  // currency icon and the price text.
+  const priceWrap = document.createElement('span');
+  priceWrap.className = 'price-wrap';
   const iconEl = document.createElement('img');
   iconEl.src = knobIcon;
   iconEl.alt = '';
   iconEl.className = 'price-icon';
-  row.appendChild(iconEl);
-  // Text for the price follows the icon
+  priceWrap.appendChild(iconEl);
   const priceText = document.createElement('span');
   priceText.textContent = item.price;
-  row.appendChild(priceText);
+  priceWrap.appendChild(priceText);
+  row.appendChild(priceWrap);
   // Date
   const dateSpan = document.createElement('span');
   dateSpan.textContent = formatDate(item.lastSeen);

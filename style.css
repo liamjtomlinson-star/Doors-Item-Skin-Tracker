@@ -201,11 +201,18 @@ main {
 
 /* Styling for the small currency icon used in price displays. The icon is
    sized consistently and aligned with the surrounding text. */
+/* Currency icon used next to the price. Reduce size and remove extra margin */
 .price-icon {
-  width: 16px;
-  height: 16px;
-  margin-right: 4px;
+  width: 14px;
+  height: 14px;
   vertical-align: middle;
+}
+
+/* Wrap the icon and price text together to control spacing precisely */
+.price-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
 }
 
 .price-icon {
