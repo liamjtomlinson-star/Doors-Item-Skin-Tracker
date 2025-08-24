@@ -183,10 +183,18 @@ function renderItems() {
 function createItemCard(item) {
   const card = document.createElement('div');
   card.className = 'item-card';
-  // Image placeholder
+  // Image: show actual image if provided, otherwise placeholder text
   const imageDiv = document.createElement('div');
   imageDiv.className = 'card-image';
-  imageDiv.textContent = 'No image';
+  if (item.image) {
+    const imgEl = document.createElement('img');
+    imgEl.src = item.image;
+    imgEl.alt = item.name;
+    imgEl.loading = 'lazy';
+    imageDiv.appendChild(imgEl);
+  } else {
+    imageDiv.textContent = 'No image';
+  }
   card.appendChild(imageDiv);
   // Content
   const content = document.createElement('div');
@@ -199,7 +207,8 @@ function createItemCard(item) {
     badge.textContent = 'Today';
     badge.classList.add('today');
   } else {
-    badge.textContent = `${days} ${days === 1 ? 'day' : 'days'}`;
+    // Add "ago" to the label for clarity (e.g., "3 days ago")
+    badge.textContent = `${days} ${days === 1 ? 'day' : 'days'} ago`;
   }
   content.appendChild(badge);
   // Category small text

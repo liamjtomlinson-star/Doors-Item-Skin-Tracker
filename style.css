@@ -163,6 +163,13 @@ main {
   user-select: none;
 }
 
+/* When an image is present, ensure it fills the card area gracefully */
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-content {
   padding: 12px;
   background-color: #161b22;

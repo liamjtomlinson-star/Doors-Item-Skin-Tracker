@@ -50,7 +50,7 @@
   {"name": "Bloxy Cola Green Soda", "lastSeen": "2025-08-21", "price": "3999 (Classic Gear Bundle)"},
   {"name": "D-Orb Lighter", "lastSeen": "2025-08-21", "price": "3999 (Classic Gear Bundle)"},
   {"name": "Gear Flashlight", "lastSeen": "2025-08-21", "price": "3999 (Classic Gear Bundle)"},
-  {"name": "Overgrown Alarm Clock", "lastSeen": "2025-08-23", "price": "3999 (Overgrown Bundle)"},
+  {"name": "Overgrown Alarm Clock", "lastSeen": "2025-08-23", "price": "3999 (Overgrown Bundle)", "image": "images/overgrown_alarm_clock.png"},
   {"name": "Overgrown Crucifix", "lastSeen": "2025-08-23", "price": "3999 (Overgrown Bundle)"},
   {"name": "Overgrown Flashlight", "lastSeen": "2025-08-23", "price": "3999 (Overgrown Bundle)"},
   {"name": "Overgrown Smoothie", "lastSeen": "2025-08-23", "price": "3999 (Overgrown Bundle)"},
