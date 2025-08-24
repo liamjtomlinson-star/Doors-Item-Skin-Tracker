@@ -245,7 +245,7 @@ function createItemCard(item) {
   row.appendChild(iconEl);
   // Text for the price follows the icon
   const priceText = document.createElement('span');
-  priceText.textContent = ` ${item.price}`;
+  priceText.textContent = item.price;
   row.appendChild(priceText);
   // Date
   const dateSpan = document.createElement('span');
