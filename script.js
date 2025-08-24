@@ -1,5 +1,10 @@
 // Dark-themed interactive item tracker for DOORS item shop
 
+// Path to the Knobs currency icon hosted alongside the site. This small webp
+// image replaces the money bag emoji in the price display. When deploying
+// the site, ensure `Knobs.webp` is included in the root directory.
+const knobIcon = 'Knobs.webp';
+
 let itemsData = [];
 const fallbackData = [
   { name: "Basic Purple Flashlight", lastSeen: "2025-08-22", price: 499 },
@@ -48,7 +53,7 @@ const fallbackData = [
   { name: "3rd Anniversary Flashlight", lastSeen: "2025-08-23", price: "3 (3rd Anniversary Bundle)" },
   { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-08-23", price: "3 (3rd Anniversary Bundle)" },
   { name: "Ban Hammer Crucifix", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
-  { name: "Bloxy Cola Green Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
+  { name: "Bloxy Cola Gween Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "D-Orb Lighter", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "Gear Flashlight", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "Overgrown Alarm Clock", lastSeen: "2025-08-23", price: "3999 (Overgrown Bundle)" },
@@ -230,10 +235,18 @@ function createItemCard(item) {
   const row = document.createElement('div');
   row.className = 'card-row';
   // Price with icon
-  const priceSpan = document.createElement('span');
-  // Use a money bag emoji similar to screenshot
-  priceSpan.innerHTML = `💰 ${item.price}`;
-  row.appendChild(priceSpan);
+  // Build an image element for the currency icon. Using an inline image
+  // allows for styling via CSS and avoids reliance on emoji fonts. The
+  // `knobIcon` constant points to the small WebP included in the site.
+  const iconEl = document.createElement('img');
+  iconEl.src = knobIcon;
+  iconEl.alt = '';
+  iconEl.className = 'price-icon';
+  row.appendChild(iconEl);
+  // Text for the price follows the icon
+  const priceText = document.createElement('span');
+  priceText.textContent = ` ${item.price}`;
+  row.appendChild(priceText);
   // Date
   const dateSpan = document.createElement('span');
   dateSpan.textContent = formatDate(item.lastSeen);
