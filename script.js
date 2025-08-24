@@ -13,9 +13,9 @@ const fallbackData = [
   { name: "Basic Magenta Bulklight", lastSeen: "2025-08-23", price: 499 },
   { name: "Basic Orange Bulklight", lastSeen: "2025-08-20", price: 499 },
   { name: "Basic Pink Bulklight", lastSeen: "2025-08-17", price: 499 },
-  { name: "Basic Blue Stratplight", lastSeen: "2025-08-21", price: 499 },
-  { name: "Basic Cyan Stratplight", lastSeen: "2025-08-22", price: 499 },
-  { name: "Basic Purple Stratplight", lastSeen: "2025-08-23", price: 499 },
+  { name: "Basic Blue Straplight", lastSeen: "2025-08-21", price: 499 },
+  { name: "Basic Cyan Straplight", lastSeen: "2025-08-22", price: 499 },
+  { name: "Basic Purple Straplight", lastSeen: "2025-08-23", price: 499 },
   { name: "Basic Orange Vitamins", lastSeen: "2025-08-17", price: 499 },
   { name: "Basic Black Lighter", lastSeen: "2025-08-22", price: 499 },
   { name: "Basic Green Lighter", lastSeen: "2025-08-23", price: 499 },
@@ -75,9 +75,9 @@ function getItemType(name) {
   if (lower.includes('bulklight')) return 'Bulklight';
   if (lower.includes('candle')) return 'Candle';
   if (lower.includes('crucifix')) return 'Crucifix';
+  // Treat "straplight" or "stratplight" variants as their own type before checking for flashlight
+  if (lower.includes('straplight') || lower.includes('stratplight')) return 'Straplight';
   if (lower.includes('flashlight')) return 'Flashlight';
-  // Treat "stratplight" or "straplight" variants as flashlights
-  if (lower.includes('stratplight') || lower.includes('straplight')) return 'Flashlight';
   if (lower.includes('glowstick')) return 'Glowstick';
   if (lower.includes('lighter')) return 'Lighter';
   if (lower.includes('lockpick')) return 'Lockpick';
