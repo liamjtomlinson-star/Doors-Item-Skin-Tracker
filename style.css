@@ -220,24 +220,6 @@ main {
   color: #fff;
 }
 
-.add-image-btn {
-  margin-top: 8px;
-  padding: 6px 12px;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  background-color: #21262d;
-  color: #c9d1d9;
-  font-size: 0.85rem;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: background-color 0.1s ease, border-color 0.1s ease;
-}
-
-.add-image-btn:hover {
-  background-color: #2ea043;
-  border-color: #2ea043;
-  color: #fff;
-}
 
 footer {
   text-align: center;

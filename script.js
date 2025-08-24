@@ -91,7 +91,8 @@ function getItemType(name) {
   if (lower.includes('key')) return 'Skeleton Key';
   if (lower.includes('vitamins')) return 'Vitamins';
   if (lower.includes('smoothie')) return 'Smoothie';
-  return 'Misc';
+  // Default category when no other type matches
+  return 'Other';
 }
 
 // Compute days since last seen and subtract one (so that items seen today show 0)
@@ -238,16 +239,6 @@ function createItemCard(item) {
   dateSpan.textContent = formatDate(item.lastSeen);
   row.appendChild(dateSpan);
   content.appendChild(row);
-  // Add image button
-  const btn = document.createElement('button');
-  btn.className = 'add-image-btn';
-  btn.textContent = 'Add image';
-  // Placeholder functionality: do nothing for now
-  btn.addEventListener('click', e => {
-    e.stopPropagation();
-    alert('Image upload not implemented in this demo.');
-  });
-  content.appendChild(btn);
   card.appendChild(content);
   return card;
 }
