@@ -1,57 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DOORS Item Tracker</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOORS Item Tracker</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>DOORS Item Tracker</h1>
-        <p class="subtitle">Track the current and recent items in the DOORS daily shop</p>
-    </header>
-    <main>
-        <section class="info">
-            <p>
-                The <em>DOORS</em> item shop includes a 
-                Featured section with themed bundles of item skins and a 
-                Today's Deals section with item skins that change daily【488227239824507†L508-L516】. The shop also offers 
-                Knobs, Revives and Stardust through additional tabs【488227239824507†L517-L520】【488227239824507†L563-L566】. 
-                The shop resets every day at 20:00&nbsp;UTC and is the same for all players【633716038851233†L419-L421】.
-            </p>
-        </section>
-
-        <section class="countdown-section">
-            <h2>Next Reset</h2>
-            <div id="countdown" class="countdown">Calculating time to next reset…</div>
-        </section>
-
-        <section class="search-section">
-            <input type="text" id="searchInput" placeholder="Search items…" aria-label="Search items" />
-        </section>
-
-        <section class="table-section">
-            <table id="itemTable">
-                <thead>
-                    <tr>
-                        <th>Item Name</th>
-                        <th>Date Last Seen</th>
-                        <th>Days Since Last Seen</th>
-                        <th>Price (Knobs)</th>
-                    </tr>
-                </thead>
-                <tbody id="itemTableBody">
-                    <!-- Rows will be inserted here -->
-                </tbody>
-            </table>
-        </section>
-    </main>
-
-    <footer>
-        <p>This fan‑made website is not affiliated with LSPLASH or Roblox. Data updated as of the latest shop reset.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <header>
+    <h1>DOORS Item Tracker</h1>
+    <p class="subtitle">Track the current and recent items in the DOORS daily shop</p>
+  </header>
+  <main>
+    <section class="info">
+      <p>
+        The <em>DOORS</em> item shop includes a Featured section with themed bundles of item skins and a
+        Today's Deals section with item skins that change daily【488227239824507†L508-L516】. The shop also offers
+        Knobs, Revives and Stardust through additional tabs【488227239824507†L517-L520】【488227239824507†L563-L566】. The item shop resets every day at
+        20:00&nbsp;UTC and is the same for all players【633716038851233†L419-L421】.
+      </p>
+    </section>
+    <section class="countdown-section">
+      <h2>Next Reset</h2>
+      <div id="countdown" class="countdown">Calculating time to next reset…</div>
+    </section>
+    <section class="controls-section">
+      <input type="text" id="searchInput" placeholder="Search item…" aria-label="Search" />
+      <div id="filterChips" class="filter-chips">
+        <!-- filter chips inserted here -->
+      </div>
+    </section>
+    <section id="itemsContainer" class="items-container">
+      <!-- categories and item cards inserted here -->
+    </section>
+  </main>
+  <footer>
+    <p>This fan‑made website is not affiliated with LSPLASH or Roblox. Data updated as of the latest shop reset.</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

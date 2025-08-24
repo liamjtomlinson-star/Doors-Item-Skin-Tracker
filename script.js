@@ -1,8 +1,6 @@
-// Fetch item data, compute days since last seen and render table
-// Container for item data
-let itemsData = [];
+// Dark-themed interactive item tracker for DOORS item shop
 
-// Fallback data used if fetch fails (helps when viewing via file:// protocol)
+let itemsData = [];
 const fallbackData = [
   { name: "Basic Purple Flashlight", lastSeen: "2025-08-22", price: 499 },
   { name: "Basic Blue Lockpick", lastSeen: "2025-08-18", price: 499 },
@@ -65,92 +63,228 @@ const fallbackData = [
   { name: "Voxel Skeleton Key", lastSeen: "2025-08-23", price: "4999 (Voxel Bundle)" }
 ];
 
-// Load JSON data
-fetch('data.json')
-  .then(response => response.json())
-  .then(data => {
-    itemsData = data;
-    updateTable();
-  })
-  .catch(err => {
-    console.warn('Failed to load item data, using fallback:', err);
-    itemsData = fallbackData;
-    updateTable();
-  });
+/**
+ * Determine the type/category of an item based on its name.
+ * This allows grouping and filtering of items by type.
+ * @param {string} name
+ * @returns {string}
+ */
+function getItemType(name) {
+  const lower = name.toLowerCase();
+  if (lower.includes('alarm clock')) return 'Alarm Clock';
+  if (lower.includes('bulklight')) return 'Bulklight';
+  if (lower.includes('candle')) return 'Candle';
+  if (lower.includes('crucifix')) return 'Crucifix';
+  if (lower.includes('flashlight')) return 'Flashlight';
+  // Treat "stratplight" or "straplight" variants as flashlights
+  if (lower.includes('stratplight') || lower.includes('straplight')) return 'Flashlight';
+  if (lower.includes('glowstick')) return 'Glowstick';
+  if (lower.includes('lighter')) return 'Lighter';
+  if (lower.includes('lockpick')) return 'Lockpick';
+  if (lower.includes('shakelight')) return 'Shakelight';
+  if (lower.includes('shears')) return 'Shears';
+  // treat keys as skeleton key if they contain 'key'
+  if (lower.includes('key')) return 'Skeleton Key';
+  if (lower.includes('vitamins')) return 'Vitamins';
+  if (lower.includes('smoothie')) return 'Smoothie';
+  return 'Misc';
+}
 
-// Compute days since last seen relative to today (UTC)
+// Compute days since last seen and subtract one (so that items seen today show 0)
 function computeDaysSince(dateStr) {
-  if (!dateStr) return null;
   const parts = dateStr.split('-').map(Number);
   if (parts.length !== 3) return null;
   const [year, month, day] = parts;
-  const last = new Date(Date.UTC(year, month - 1, day));
+  const lastDate = new Date(Date.UTC(year, month - 1, day));
   const now = new Date();
   const todayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-  const diffMs = todayUTC - last;
-  return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diff = Math.floor((todayUTC - lastDate) / (1000 * 60 * 60 * 24));
+  // subtract 1 but never go below 0
+  return Math.max(0, diff - 1);
 }
 
-// Format date back to M/D/YYYY for display
+// Format date for display (MM/DD/YYYY)
 function formatDate(dateStr) {
   const [year, month, day] = dateStr.split('-');
   return `${month}/${day}/${year}`;
 }
 
-// Update table content based on search input
-function updateTable() {
-  const tbody = document.getElementById('itemTableBody');
-  tbody.innerHTML = '';
-  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-  // Sort by days since last seen ascending
-  const sorted = itemsData.slice().sort((a, b) => {
-    return computeDaysSince(a.lastSeen) - computeDaysSince(b.lastSeen);
+// Build filter chips UI
+function buildFilterChips(types) {
+  const container = document.getElementById('filterChips');
+  container.innerHTML = '';
+  const allChip = createChip('All', 'All');
+  container.appendChild(allChip);
+  types.forEach(type => {
+    const chip = createChip(type, type);
+    container.appendChild(chip);
   });
-  for (const item of sorted) {
-    if (item.name.toLowerCase().includes(searchTerm)) {
-      const days = computeDaysSince(item.lastSeen);
-      const tr = document.createElement('tr');
-      if (days === 0) tr.classList.add('current');
-      tr.innerHTML = `
-        <td>${item.name}</td>
-        <td>${formatDate(item.lastSeen)}</td>
-        <td>${days}</td>
-        <td>${item.price}</td>
-      `;
-      tbody.appendChild(tr);
-    }
-  }
 }
 
-// Search input listener
-document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', () => {
-    updateTable();
+// Helper to create a chip element
+function createChip(label, type) {
+  const chip = document.createElement('div');
+  chip.className = 'chip';
+  chip.textContent = label;
+  chip.dataset.type = type;
+  chip.addEventListener('click', () => {
+    // Toggle active chip
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeType = type;
+    renderItems();
   });
-});
+  // Mark All as active initially
+  if (type === 'All' && activeType === 'All') {
+    chip.classList.add('active');
+  }
+  return chip;
+}
 
-// Countdown timer to next reset at 20:00 UTC
+// Build item cards and category sections
+function renderItems() {
+  const container = document.getElementById('itemsContainer');
+  container.innerHTML = '';
+  const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  // Group items by type
+  const grouped = {};
+  itemsData.forEach(item => {
+    const type = getItemType(item.name);
+    // Filter by type and search term
+    if ((activeType === 'All' || activeType === type) && item.name.toLowerCase().includes(searchTerm)) {
+      if (!grouped[type]) grouped[type] = [];
+      grouped[type].push(item);
+    }
+  });
+  // Sort types alphabetically
+  const sortedTypes = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
+  sortedTypes.forEach(type => {
+    const section = document.createElement('div');
+    section.className = 'category';
+    // Category title
+    const title = document.createElement('h3');
+    title.className = 'category-title';
+    title.textContent = type;
+    section.appendChild(title);
+    // Sort items alphabetically within category
+    grouped[type].sort((a, b) => a.name.localeCompare(b.name));
+    const grid = document.createElement('div');
+    grid.className = 'item-grid';
+    grouped[type].forEach(item => {
+      const card = createItemCard(item);
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
+}
+
+// Create a card element for an item
+function createItemCard(item) {
+  const card = document.createElement('div');
+  card.className = 'item-card';
+  // Image placeholder
+  const imageDiv = document.createElement('div');
+  imageDiv.className = 'card-image';
+  imageDiv.textContent = 'No image';
+  card.appendChild(imageDiv);
+  // Content
+  const content = document.createElement('div');
+  content.className = 'card-content';
+  // Days badge
+  const days = computeDaysSince(item.lastSeen);
+  const badge = document.createElement('div');
+  badge.className = 'days-badge';
+  if (days === 0) {
+    badge.textContent = 'Today';
+    badge.classList.add('today');
+  } else {
+    badge.textContent = `${days} ${days === 1 ? 'day' : 'days'}`;
+  }
+  content.appendChild(badge);
+  // Category small text
+  const cat = document.createElement('div');
+  cat.className = 'card-category';
+  cat.textContent = getItemType(item.name);
+  content.appendChild(cat);
+  // Name
+  const nameDiv = document.createElement('div');
+  nameDiv.className = 'card-name';
+  nameDiv.textContent = item.name;
+  content.appendChild(nameDiv);
+  // Price and date row
+  const row = document.createElement('div');
+  row.className = 'card-row';
+  // Price with icon
+  const priceSpan = document.createElement('span');
+  // Use a money bag emoji similar to screenshot
+  priceSpan.innerHTML = `💰 ${item.price}`;
+  row.appendChild(priceSpan);
+  // Date
+  const dateSpan = document.createElement('span');
+  dateSpan.textContent = formatDate(item.lastSeen);
+  row.appendChild(dateSpan);
+  content.appendChild(row);
+  // Add image button
+  const btn = document.createElement('button');
+  btn.className = 'add-image-btn';
+  btn.textContent = 'Add image';
+  // Placeholder functionality: do nothing for now
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    alert('Image upload not implemented in this demo.');
+  });
+  content.appendChild(btn);
+  card.appendChild(content);
+  return card;
+}
+
+// Countdown timer to next reset (20:00 UTC)
 function updateCountdown() {
   const countdownElem = document.getElementById('countdown');
   const now = new Date();
-  const nextReset = new Date();
+  let nextReset = new Date();
   nextReset.setUTCMinutes(0, 0, 0);
   nextReset.setUTCHours(20);
-  // If it's past 20:00 UTC today, the next reset is tomorrow
-  const nowUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-  const resetUTC = Date.UTC(nextReset.getUTCFullYear(), nextReset.getUTCMonth(), nextReset.getUTCDate(), nextReset.getUTCHours(), nextReset.getUTCMinutes(), 0);
-  let diffMs = resetUTC - nowUTC;
-  if (diffMs <= 0) {
-    // Add one day
-    diffMs += 24 * 60 * 60 * 1000;
+  // If now is past reset, set to next day
+  if (Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes()) >= Date.UTC(nextReset.getUTCFullYear(), nextReset.getUTCMonth(), nextReset.getUTCDate(), nextReset.getUTCHours(), nextReset.getUTCMinutes())) {
+    nextReset.setUTCDate(nextReset.getUTCDate() + 1);
   }
+  const diffMs = nextReset.getTime() - now.getTime();
   const hours = Math.floor(diffMs / (1000 * 60 * 60));
   const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((diffMs % (1000 * 60)) / 1000);
   countdownElem.textContent = `${hours}h ${minutes}m ${seconds}s`;
 }
 
-// Start countdown interval
-setInterval(updateCountdown, 1000);
-updateCountdown();
+// Initialize search listener and load data
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', () => {
+    renderItems();
+  });
+  // Fetch data from JSON
+  fetch('data.json')
+    .then(res => res.json())
+    .then(data => {
+      itemsData = data;
+      initUI();
+    })
+    .catch(err => {
+      console.warn('Failed to load remote data, using fallback', err);
+      itemsData = fallbackData;
+      initUI();
+    });
+});
+
+function initUI() {
+  // Determine types
+  const types = Array.from(new Set(itemsData.map(item => getItemType(item.name)))).sort((a, b) => a.localeCompare(b));
+  buildFilterChips(types);
+  renderItems();
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+// Active type state
+let activeType = 'All';
