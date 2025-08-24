@@ -75,6 +75,8 @@ function getItemType(name) {
   if (lower.includes('bulklight')) return 'Bulklight';
   // Special case: treat "moonlight candle" as its own type before generic candle check
   if (lower.includes('moonlight candle')) return 'Moonlight Candle';
+  // Special case: treat "gween soda" as its own type before generic categories
+  if (lower.includes('gween soda')) return 'Gween Soda';
   if (lower.includes('candle')) return 'Candle';
   if (lower.includes('crucifix')) return 'Crucifix';
   // Treat "straplight" or "stratplight" variants as their own type before checking for flashlight
