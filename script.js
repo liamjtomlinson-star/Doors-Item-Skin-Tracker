@@ -109,8 +109,8 @@ function computeDaysSince(dateStr) {
   const now = new Date();
   const todayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
   const diff = Math.floor((todayUTC - lastDate) / (1000 * 60 * 60 * 24));
-  // subtract 1 but never go below 0
-  return Math.max(0, diff - 1);
+  // Do not subtract a day: a difference of 0 means last seen today, 1 means yesterday, etc.
+  return Math.max(0, diff);
 }
 
 // Format date for display (MM/DD/YYYY)
