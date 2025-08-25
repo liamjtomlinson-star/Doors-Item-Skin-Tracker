@@ -102,15 +102,27 @@ function getItemType(name) {
 
 // Compute days since last seen and subtract one (so that items seen today show 0)
 function computeDaysSince(dateStr) {
+  // Compute the number of days since the lastSeen date, accounting for the
+  // daily item shop reset at 20:00 UTC. Without this adjustment, items would
+  // tick up their "days ago" counter at midnight local time, which is not
+  // consistent with the DOORS shop reset schedule. An item seen yesterday
+  // should display "1 day ago" until 20:00 UTC, at which point it becomes
+  // "2 days ago".
   const parts = dateStr.split('-').map(Number);
   if (parts.length !== 3) return null;
   const [year, month, day] = parts;
   const lastDate = new Date(Date.UTC(year, month - 1, day));
   const now = new Date();
-  const todayUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-  const diff = Math.floor((todayUTC - lastDate) / (1000 * 60 * 60 * 24));
-  // subtract 1 but never go below 0
-  return Math.max(0, diff - 1);
+  // Current moment in UTC
+  const utcNow = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
+  let diff = Math.floor((utcNow - lastDate) / (1000 * 60 * 60 * 24));
+  // If the current UTC time is before the reset hour and the raw difference is
+  // greater than zero, hold off incrementing the counter until the reset time
+  const resetHourUTC = 20;
+  if (diff > 0 && now.getUTCHours() < resetHourUTC) {
+    diff -= 1;
+  }
+  return Math.max(0, diff);
 }
 
 // Format date for display (MM/DD/YYYY)
