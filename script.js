@@ -137,6 +137,9 @@ function buildFilterChips(types) {
   container.innerHTML = '';
   const allChip = createChip('All', 'All');
   container.appendChild(allChip);
+  // Add a chip to display only items currently in the shop (lastSeen today)
+  const currentChip = createChip('Today', 'Current');
+  container.appendChild(currentChip);
   types.forEach(type => {
     const chip = createChip(type, type);
     container.appendChild(chip);
@@ -172,8 +175,20 @@ function renderItems() {
   const grouped = {};
   itemsData.forEach(item => {
     const type = getItemType(item.name);
-    // Filter by type and search term
-    if ((activeType === 'All' || activeType === type) && item.name.toLowerCase().includes(searchTerm)) {
+    const nameMatch = item.name.toLowerCase().includes(searchTerm);
+    // Determine if item should be shown based on the active filter
+    let include = false;
+    if (activeType === 'Current') {
+      // Show only items seen today (computeDaysSince === 0)
+      if (computeDaysSince(item.lastSeen) === 0 && nameMatch) {
+        include = true;
+      }
+    } else if (activeType === 'All' || activeType === type) {
+      if (nameMatch) {
+        include = true;
+      }
+    }
+    if (include) {
       if (!grouped[type]) grouped[type] = [];
       grouped[type].push(item);
     }
