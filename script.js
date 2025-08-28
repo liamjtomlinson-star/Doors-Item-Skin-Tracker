@@ -18,12 +18,7 @@ const camoLighterSkinImage =
   "emYSvjB/xAG6P5bk3HG+bizEL1HTHSF/dBfxUs7rweHVN6wkrKWLV5jT9/UZgGCEitBR15NpcSqw7vg1DmmEOd7FJBSXADphP5uQn/YqkprE9d7B6Mbuo1cUYA68Z7IdjltRQZJu6Zq4peU6zVcJ8ybfncyZJXNZRpKbveuzz0ucnsg83i+hLD6nURAlx0Od3CSY2sdI0NdZICCyYzy+FT09gw7PdFnTxT6IDZwP9VMU0Gjd4WXqxs7akofZux+bgM43wr+QlZx3R2P1HvDDIipdmWe93Dae83YMcQMVw7tr4BBU+QWz0zM8TPc9NsOsTuVLPyW1Xb3ngcJlE3uBk8QReIQVutjrOYO97qKl2mP6mOrlwN+e6x85oqvR7wW1lRnpzqRqWlRYdDsHHNJHJTUln9pZ6rbgQG9wKEYMvSiAW9YWb/S5Ycmlk6uVVqNgmDaPk3cO7ejvK00THlpRx4/m4E3Fpf7crPCCYISb7VKxEohrf7tyWSb7VpSp0TinZk8DmWNkUtOwSGkDBzGZ/5j9EVbY9/ta+FrAzQunrujDtbxkmoGyUeN6DE/MEorijvSakykbeB78z63prK6LCXMnKRh4KU4sV1sg0Jm6gcigXcV93lwqwX7abgFN22fwtbGb+30k6tgM4jLpf1orxMxEPGAw9v1jtwadj50k4qzFqaivcQjRHZjg9M431AdtvKp0znJn9N97nlpb1vvLW6rwwWnCHQZATm3u3PaFs/mcR9bU4eNJQ4j9bf5ZI+7zloPXtCq2uGYS6fq9hMUQ5pROefDlMk7Rvw52ImDW5Wni5ev3zzLnzDEBb7OOXhFOHP48EaeNJsjMf55BMl8gxYSsvwyKgz8h/ozo/B9pydywrOGgJjcuMlgrHAKSV4rg9MGL6DZ5aT8H5kEnlDYtXexJ17W6R9kFKJK1slkJ1jQkEceCPOrqEskvgWXrSY4KpJTjS9br6d+GGX5dyxixGmu59zCymGVdvfqz1utH" +
   "9nI1xIjve5u97UzGJQfFL13iPTxA8WjPffhq02bAc4uaP/Or/TaM9lxiEiz0apwflT5D0lW5jiIc9aG32IliRfbhm0/rjN9m8lIRYhpPDElR2ppeGgvE/E4jZKz7e8Lgq8+syoUfhWiMhlglAgSKxQqVqoUpwpH8xOYotYeAzkD5AFN9/iKUJX3yWxjReMerLtMjXRB//tdEV7zF8SRSscsZFfVsdQcLdQOM+3zjcUNu9VkUyjMG/B7Qvg+wyaTCdppQxBYJzjOCH6ga2llxlmzs0HwjZ6MCI3XUbEmLeZOd0+n5+BRAPzfaGRNFm4EMOgnt2o6ZvC0As64jkSlysk0YN8h6h+AydiiN4UvqLgAA==";
 
-// Inline image map used as a fallback for items that might not have an image defined.
-// Currently only used for Camo Lighter Skin to ensure its picture always displays even if
-// the JSON fails to load and the fallback data is used.
-const inlineImages = {
-  "Camo Lighter Skin": camoLighterSkinImage,
-};
+
 
 const fallbackData = [
   { name: "Basic Purple Flashlight", lastSeen: "2025-08-22", price: 499 },
@@ -90,7 +85,7 @@ const fallbackData = [
   { name: "Makeshift Vitamins", lastSeen: "2025-08-27", price: 1499 },
   { name: "Basic Pink Flashlight", lastSeen: "2025-08-27", price: 499 },
   { name: "Basic White Shears", lastSeen: "2025-08-27", price: 499 },
-  { name: "Camo Lighter Skin", lastSeen: "2025-08-27", price: 799, image: camoLighterSkinImage },
+  { name: "Camo Lighter Skin", lastSeen: "2025-08-27", price: 799, image: "CamoLighter.webp" },
   { name: "Basic Black Vitamins", lastSeen: "2025-08-27", price: 499 }
 ];
 
@@ -249,10 +244,9 @@ function createItemCard(item) {
   // Image: show actual image if provided, otherwise placeholder text
   const imageDiv = document.createElement('div');
   imageDiv.className = 'card-image';
-  // Determine the image source. Use the item's image if provided,
-  // otherwise fall back to an inline image based on the item name. If no
-  // fallback exists, leave the card blank and show a placeholder text.
-  const imgSrc = item.image || inlineImages[item.name];
+  // Determine the image source. Use the item's image if provided. If no
+  // image is specified for an item, show a placeholder text.
+  const imgSrc = item.image;
   if (imgSrc) {
     const imgEl = document.createElement('img');
     imgEl.src = imgSrc;
