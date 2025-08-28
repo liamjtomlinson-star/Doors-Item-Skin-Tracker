@@ -6,7 +6,10 @@
 
 body {
   margin: 0;
-  background-color: #0d1117;
+  /* Use the uploaded image as the page background. The image will cover the entire
+     viewport and stay fixed while scrolling. */
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
   color: #c9d1d9;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -120,6 +123,11 @@ main {
 
 .items-container {
   margin-top: 10px;
+  /* Apply a semi‑transparent backdrop and blur to improve readability against the page background */
+  backdrop-filter: blur(5px);
+  background-color: rgba(13, 17, 23, 0.7);
+  padding: 16px;
+  border-radius: 12px;
 }
 
 .category {
@@ -197,6 +205,23 @@ main {
   align-items: center;
   font-size: 0.85rem;
   color: #c9d1d9;
+}
+
+/* Styling for the small currency icon used in price displays. The icon is
+   sized consistently and aligned with the surrounding text. */
+/* Currency icon used next to the price. Reduce size and remove extra margin */
+/* Currency icon used next to the price. Reduce size and provide a small right margin */
+.price-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+
+/* Wrap the icon and price text together so there is no extra gap (icon margin handles spacing) */
+.price-wrap {
+  display: inline-flex;
+  align-items: center;
 }
 
 .price-icon {
