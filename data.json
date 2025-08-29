@@ -481,7 +481,8 @@
   {
     "name": "Basic Orange Shears",
     "lastSeen": "2025-08-28",
-    "price": 499
+    "price": 499,
+    "image": "BasicOrangeShears.webp"
   },
   {
     "name": "Basic Red Bulklight",
@@ -492,7 +493,8 @@
   {
     "name": "Basic Purple Lighter",
     "lastSeen": "2025-08-28",
-    "price": 499
+    "price": 499,
+    "image": "BasicPurpleLighter.webp"
   },
   {
     "name": "Basic Magenta Flashlight",

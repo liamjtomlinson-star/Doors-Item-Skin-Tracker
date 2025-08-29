@@ -9,7 +9,7 @@ const knobIcon = 'Knobs.webp';
 // this string whenever you update data.json so browsers fetch the latest file.
 // Bump the data version each time the data set or fallback list is updated. This
 // ensures browsers fetch a fresh copy of data.json after each deploy.
-const DATA_VERSION = '2025-08-29a';
+const DATA_VERSION = '2025-08-29b';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -91,9 +91,9 @@ const fallbackData = [
   { name: "Basic Black Vitamins", lastSeen: "2025-08-27", price: 499 },
   // Newly added items on 2025-08-28
   { name: "Happy Sip Smoothie", lastSeen: "2025-08-28", price: 1499, image: "HappySipSmoothie.webp" },
-  { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
+  { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499, image: "BasicOrangeShears.webp" },
   { name: "Basic Red Bulklight", lastSeen: "2025-08-28", price: 499, image: "BasicRedBulklight.webp" },
-  { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499 },
+  { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499, image: "BasicPurpleLighter.webp" },
   { name: "Basic Magenta Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicMagentaFlashlight.webp" },
   { name: "Transluscent Lighter", lastSeen: "2025-08-28", price: 799, image: "TransluscentLighter.webp" }
   ,
