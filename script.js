@@ -9,7 +9,7 @@ const knobIcon = 'Knobs.webp';
 // this string whenever you update data.json so browsers fetch the latest file.
 // Bump the data version each time the data set or fallback list is updated. This
 // ensures browsers fetch a fresh copy of data.json after each deploy.
-const DATA_VERSION = '2025-08-28c';
+const DATA_VERSION = '2025-08-29a';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -52,18 +52,18 @@ const fallbackData = [
   { name: "Color Camo Bulklight", lastSeen: "2025-08-20", price: 799 },
   { name: "Translucent Bulklight", lastSeen: "2025-08-18", price: 799 },
   { name: "Translucent Lockpick", lastSeen: "2025-08-23", price: 799 },
-  { name: "Activated Crucifix", lastSeen: "2025-08-19", price: 1499 },
+  { name: "Activated Crucifix", lastSeen: "2025-08-29", price: 1499 },
   { name: "Bob Skeleton Key", lastSeen: "2025-08-20", price: 1499 },
   { name: "Dread Alarm Clock", lastSeen: "2025-08-27", price: 1499 },
   { name: "Giggle Bulklight", lastSeen: "2025-08-23", price: 1499 },
-  { name: "Hallowed Crucifix", lastSeen: "2025-08-24", price: 1499 },
+  { name: "Hallowed Crucifix", lastSeen: "2025-08-29", price: 1499 },
   { name: "Loca Cola Gween Soda", lastSeen: "2025-08-25", price: 1499 },
   { name: "Makeshift Flashlight", lastSeen: "2025-08-17", price: 1499 },
   { name: "Paperclips Lockpick", lastSeen: "2025-08-24", price: 1499 },
   { name: "Safety Scissors Shears", lastSeen: "2025-08-21", price: 1499 },
   { name: "Sticks Crucifix", lastSeen: "2025-08-26", price: 1499 },
   { name: "DrakoBloxxer Flashlight", lastSeen: "2025-08-22", price: 2999 },
-  { name: "Figure Flashlight", lastSeen: "2025-08-28", price: 2999 },
+  { name: "Figure Flashlight", lastSeen: "2025-08-29", price: 2999 },
   { name: "3rd Anniversary Candle", lastSeen: "2025-08-28", price: "3 (3rd Anniversary Bundle)" },
   { name: "3rd Anniversary Crucifix", lastSeen: "2025-08-28", price: "3 (3rd Anniversary Bundle)" },
   { name: "3rd Anniversary Flashlight", lastSeen: "2025-08-28", price: "3 (3rd Anniversary Bundle)" },
@@ -72,10 +72,10 @@ const fallbackData = [
   { name: "Bloxy Cola Gween Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "D-Orb Lighter", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "Gear Flashlight", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
-  { name: "Overgrown Alarm Clock", lastSeen: "2025-08-28", price: "3999 (Overgrown Bundle)" },
-  { name: "Overgrown Crucifix", lastSeen: "2025-08-28", price: "3999 (Overgrown Bundle)" },
-  { name: "Overgrown Flashlight", lastSeen: "2025-08-28", price: "3999 (Overgrown Bundle)" },
-  { name: "Overgrown Smoothie", lastSeen: "2025-08-28", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Alarm Clock", lastSeen: "2025-08-29", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Crucifix", lastSeen: "2025-08-29", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Flashlight", lastSeen: "2025-08-29", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Smoothie", lastSeen: "2025-08-29", price: "3999 (Overgrown Bundle)" },
   { name: "Voxel Crucifix", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)" },
   { name: "Voxel Flashlight", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)" },
   { name: "Voxel Glowstick", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)" },
@@ -94,8 +94,18 @@ const fallbackData = [
   { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
   { name: "Basic Red Bulklight", lastSeen: "2025-08-28", price: 499, image: "BasicRedBulklight.webp" },
   { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499 },
-  { name: "Basic Magenta Flashlight", lastSeen: "2025-08-28", price: 499, image: "BasicMagentaFlashlight.webp" },
+  { name: "Basic Magenta Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicMagentaFlashlight.webp" },
   { name: "Transluscent Lighter", lastSeen: "2025-08-28", price: 799, image: "TransluscentLighter.webp" }
+  ,
+  // Newly added items on 2025-08-29
+  { name: "Basic Pink Straplight", lastSeen: "2025-08-29", price: 499, image: "BasicPinkStraplight.png" },
+  { name: "Basic Jade Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicJadeFlashlight.png" },
+  { name: "Transluscent Shakelight", lastSeen: "2025-08-29", price: 799, image: "TransluscentShakelight.png" },
+  { name: "Basic White Vitamins", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteVitamins.png" },
+  { name: "Basic White Lighter", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteLighter.png" },
+  { name: "Retro Crucifix", lastSeen: "2025-08-29", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
+  { name: "Retro Flashlight", lastSeen: "2025-08-29", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
+  { name: "Retro Gween Soda", lastSeen: "2025-08-29", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" }
 ];
 
 /**
@@ -250,22 +260,6 @@ function renderItems() {
 function createItemCard(item) {
   const card = document.createElement('div');
   card.className = 'item-card';
-  // Determine item slug by stripping non‑alphanumeric characters. This slug is used
-  // to build the path for the detail page (items/<slug>/). For example,
-  // "Overgrown Alarm Clock" becomes "OvergrownAlarmClock". Slugs are computed
-  // here so they remain consistent wherever referenced.
-  const slug = item.name.replace(/[^a-zA-Z0-9]/g, '');
-  // If this item is a glowstick, add a custom class to shrink its image area.
-  if (getItemType(item.name) === 'Glowstick') {
-    card.classList.add('glowstick-card');
-  }
-  // Make the entire card clickable. Use a pointer cursor to indicate interactivity.
-  card.style.cursor = 'pointer';
-  card.addEventListener('click', () => {
-    // Navigate to the item detail page. The trailing slash ensures that
-    // relative links within the item page resolve correctly.
-    window.location.href = `items/${slug}/`;
-  });
   // Image: show actual image if provided, otherwise placeholder text
   const imageDiv = document.createElement('div');
   imageDiv.className = 'card-image';
@@ -330,6 +324,14 @@ function createItemCard(item) {
   dateSpan.textContent = formatDate(item.lastSeen);
   row.appendChild(dateSpan);
   content.appendChild(row);
+
+  // If this is a 3rd Anniversary item, display a note indicating the item is no longer available.
+  if (item.name.toLowerCase().includes('3rd anniversary')) {
+    const note = document.createElement('div');
+    note.className = 'card-note';
+    note.textContent = 'Item is gone permanently.';
+    content.appendChild(note);
+  }
   card.appendChild(content);
   return card;
 }
