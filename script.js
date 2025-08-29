@@ -250,6 +250,22 @@ function renderItems() {
 function createItemCard(item) {
   const card = document.createElement('div');
   card.className = 'item-card';
+  // Determine item slug by stripping non‑alphanumeric characters. This slug is used
+  // to build the path for the detail page (items/<slug>/). For example,
+  // "Overgrown Alarm Clock" becomes "OvergrownAlarmClock". Slugs are computed
+  // here so they remain consistent wherever referenced.
+  const slug = item.name.replace(/[^a-zA-Z0-9]/g, '');
+  // If this item is a glowstick, add a custom class to shrink its image area.
+  if (getItemType(item.name) === 'Glowstick') {
+    card.classList.add('glowstick-card');
+  }
+  // Make the entire card clickable. Use a pointer cursor to indicate interactivity.
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', () => {
+    // Navigate to the item detail page. The trailing slash ensures that
+    // relative links within the item page resolve correctly.
+    window.location.href = `items/${slug}/`;
+  });
   // Image: show actual image if provided, otherwise placeholder text
   const imageDiv = document.createElement('div');
   imageDiv.className = 'card-image';

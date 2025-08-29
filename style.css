@@ -178,6 +178,19 @@ main {
   object-fit: cover;
 }
 
+/*
+ * Adjust the layout for glowstick cards. Glowstick images tend to be much taller
+ * than they are wide, which makes the standard card layout appear oversized.
+ * When a card is marked with the `glowstick-card` class (added in script.js),
+ * reduce the flexible height of the image container so the cards remain
+ * proportional to the others. Without this rule, glowstick items dominate
+ * the grid because their images have a lot of vertical empty space.
+ */
+.item-card.glowstick-card .card-image {
+  /* Reduce the flex-basis to shrink the image area */
+  flex: 1 0 100px;
+}
+
 .card-content {
   padding: 12px;
   background-color: #161b22;
