@@ -9,7 +9,8 @@ const knobIcon = 'Knobs.webp';
 // this string whenever you update data.json so browsers fetch the latest file.
 // Bump the data version each time the data set or fallback list is updated. This
 // ensures browsers fetch a fresh copy of data.json after each deploy.
-const DATA_VERSION = '2025-08-30a';
+// Bumped on 2025‑08‑30 after replacing alarm clock images
+const DATA_VERSION = '2025-08-30b';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -54,7 +55,7 @@ const fallbackData = [
   { name: "Translucent Lockpick", lastSeen: "2025-08-23", price: 799 },
   { name: "Activated Crucifix", lastSeen: "2025-08-29", price: 1499 },
   { name: "Bob Skeleton Key", lastSeen: "2025-08-20", price: 1499 },
-  { name: "Dread Alarm Clock", lastSeen: "2025-08-27", price: 1499 },
+  { name: "Dread Alarm Clock", lastSeen: "2025-08-27", price: 1499, image: "DreadAlarmClock.png" },
   { name: "Giggle Bulklight", lastSeen: "2025-08-23", price: 1499 },
   { name: "Hallowed Crucifix", lastSeen: "2025-08-30", price: 1499 },
   { name: "Loca Cola Gween Soda", lastSeen: "2025-08-30", price: 1499 },
@@ -72,7 +73,7 @@ const fallbackData = [
   { name: "Bloxy Cola Gween Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "D-Orb Lighter", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
   { name: "Gear Flashlight", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)" },
-  { name: "Overgrown Alarm Clock", lastSeen: "2025-08-30", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Alarm Clock", lastSeen: "2025-08-30", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
   { name: "Overgrown Crucifix", lastSeen: "2025-08-30", price: "3999 (Overgrown Bundle)" },
   { name: "Overgrown Flashlight", lastSeen: "2025-08-30", price: "3999 (Overgrown Bundle)" },
   { name: "Overgrown Smoothie", lastSeen: "2025-08-30", price: "3999 (Overgrown Bundle)" },
