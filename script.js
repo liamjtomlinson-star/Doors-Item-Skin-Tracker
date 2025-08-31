@@ -16,7 +16,8 @@ const knobIcon = 'Knobs.webp';
 // browsers fetch a fresh copy of data.json after deploy.  Updated on
 // 2025‑08‑31 to embed new lockpick and shakelight images directly in
 // data.json and add fallback entries for new shakelights.
-const DATA_VERSION = '2025-08-31b';
+// Update the data version to trigger cache busting after embedding more images directly in data.json
+const DATA_VERSION = '2025-08-31c';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -107,7 +108,8 @@ const fallbackData = [
   { name: "Basic Black Vitamins", lastSeen: "2025-08-27", price: 499 },
   // Newly added items on 2025-08-28
   { name: "Happy Sip Smoothie", lastSeen: "2025-08-28", price: 1499, image: "HappySipSmoothie.webp" },
-  { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499, image: "BasicOrangeShears.webp" },
+  // Basic Orange Shears has its image embedded directly in data.json
+  { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
   { name: "Basic Red Bulklight", lastSeen: "2025-08-28", price: 499, image: "BasicRedBulklight.png" },
   { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499, image: "BasicPurpleLighter.png" },
   { name: "Basic Magenta Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicMagentaFlashlight.png" },
@@ -116,7 +118,8 @@ const fallbackData = [
   // Newly added items on 2025-08-29
   { name: "Basic Pink Straplight", lastSeen: "2025-08-29", price: 499, image: "BasicPinkStraplight.png" },
   { name: "Basic Jade Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicJadeFlashlight.png" },
-  { name: "Transluscent Shakelight", lastSeen: "2025-08-29", price: 799, image: "TransluscentShakelight.png" },
+  // The Transluscent Shakelight image is embedded in data.json, so remove the image reference here
+  { name: "Transluscent Shakelight", lastSeen: "2025-08-29", price: 799 },
   { name: "Basic White Vitamins", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteVitamins.png" },
   { name: "Basic White Lighter", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteLighter.png" },
  { name: "Retro Crucifix", lastSeen: "2025-08-30", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
