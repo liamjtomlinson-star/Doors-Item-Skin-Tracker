@@ -142,7 +142,8 @@ main {
  * consistent with the overall palette.
  */
 .category-title {
-  font-size: 1.6rem;
+  /* Increase the category title size for better readability */
+  font-size: 1.8rem;
   margin-bottom: 16px;
   /* Use a warm accent color similar to the in‑game UI for category labels */
   color: #f2d3a0;
