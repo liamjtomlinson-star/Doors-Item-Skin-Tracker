@@ -134,19 +134,10 @@ main {
   margin-top: 24px;
 }
 
-/*
- * Section headings for each item category.  Increase the font size and
- * add a subtle letter‑spacing and weight to make these labels stand
- * out visually.  These tweaks help visitors quickly scan the page
- * and distinguish between different item types.  The color remains
- * consistent with the overall palette.
- */
 .category-title {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   margin-bottom: 12px;
   color: #c9d1d9;
-  font-weight: 600;
-  letter-spacing: 0.03em;
 }
 
 .item-grid {

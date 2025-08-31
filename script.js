@@ -17,11 +17,7 @@ const knobIcon = 'Knobs.webp';
 // 2025‑08‑31 to embed new lockpick and shakelight images directly in
 // data.json and add fallback entries for new shakelights.
 // Update the data version to trigger cache busting after embedding more images directly in data.json
-// Bump the data version whenever the data or fallback definitions change.  This
-// ensures browsers fetch a fresh copy of data.json after deployment.  The
-// value below was updated on 2025‑08‑31 after embedding additional images
-// directly in data.json, updating fallback entries and tweaking styles.
-const DATA_VERSION = '2025-08-31d';
+const DATA_VERSION = '2025-08-31c';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -50,10 +46,6 @@ const fallbackData = [
  { name: "Basic Cyan Bulklight", lastSeen: "2025-08-25", price: 499, image: "BasicCyanBulklight.png" },
   { name: "Basic Blue Straplight", lastSeen: "2025-08-30", price: 499 },
   { name: "Basic Cyan Straplight", lastSeen: "2025-08-27", price: 499 },
-  // Jade straplight was introduced on 2025‑08‑24; add a fallback entry so
-  // it appears even if data.json fails to load.  The image is embedded
-  // directly in data.json, so no image property is provided here.
-  { name: "Basic Jade Straplight", lastSeen: "2025-08-24", price: 499 },
   { name: "Basic Purple Straplight", lastSeen: "2025-08-23", price: 499 },
   { name: "Basic Orange Vitamins", lastSeen: "2025-08-24", price: 499 },
   { name: "Basic Black Lighter", lastSeen: "2025-08-22", price: 499, image: "BasicBlackLighter.png" },
@@ -115,9 +107,7 @@ const fallbackData = [
   { name: "Camo Lighter Skin", lastSeen: "2025-08-27", price: 799, image: "CamoLighter.png" },
   { name: "Basic Black Vitamins", lastSeen: "2025-08-27", price: 499 },
   // Newly added items on 2025-08-28
-  // The Happy Sip Smoothie image is now embedded in data.json; remove the image
-  // property here so the fallback doesn't refer to a deleted file.
-  { name: "Happy Sip Smoothie", lastSeen: "2025-08-28", price: 1499 },
+  { name: "Happy Sip Smoothie", lastSeen: "2025-08-28", price: 1499, image: "HappySipSmoothie.webp" },
   // Basic Orange Shears has its image embedded directly in data.json
   { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
   { name: "Basic Red Bulklight", lastSeen: "2025-08-28", price: 499, image: "BasicRedBulklight.png" },
@@ -126,9 +116,7 @@ const fallbackData = [
   { name: "Transluscent Lighter", lastSeen: "2025-08-28", price: 799, image: "TransluscentLighter.png" }
   ,
   // Newly added items on 2025-08-29
-  // Basic Pink Straplight image is embedded directly in data.json.  Remove the
-  // image field from the fallback entry so we don't reference a removed file.
-  { name: "Basic Pink Straplight", lastSeen: "2025-08-29", price: 499 },
+  { name: "Basic Pink Straplight", lastSeen: "2025-08-29", price: 499, image: "BasicPinkStraplight.png" },
   { name: "Basic Jade Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicJadeFlashlight.png" },
   // The Transluscent Shakelight image is embedded in data.json, so remove the image reference here
   { name: "Transluscent Shakelight", lastSeen: "2025-08-29", price: 799 },
