@@ -12,7 +12,11 @@ const knobIcon = 'Knobs.webp';
 // Bumped on 2025‑08‑30 after replacing alarm clock and crucifix/bulklight images
 // Bump the data version after modifying fallback and image updates (2025‑08‑30).
 // Bump the version after updating flashlight and glowstick images and item prices
-const DATA_VERSION = '2025-08-31a';
+// Bump the data version whenever updating data.json or fallback entries.  This ensures
+// browsers fetch a fresh copy of data.json after deploy.  Updated on
+// 2025‑08‑31 to embed new lockpick and shakelight images directly in
+// data.json and add fallback entries for new shakelights.
+const DATA_VERSION = '2025-08-31b';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -53,6 +57,9 @@ const fallbackData = [
   { name: "Basic Orange Shakelight", lastSeen: "2025-08-30", price: 799 },
   { name: "Basic Pink Shakelight", lastSeen: "2025-08-17", price: 799 },
   { name: "Basic Red Shakelight", lastSeen: "2025-08-22", price: 799 },
+  // Added Basic White and Blue Shakelights as new items; these use the new images
+  { name: "Basic White Shakelight", lastSeen: "2025-08-24", price: 799 },
+  { name: "Basic Blue Shakelight", lastSeen: "2025-08-30", price: 799 },
   { name: "Camo Vitamins", lastSeen: "2025-08-19", price: 799 },
   { name: "Color Camo Vitamins", lastSeen: "2025-08-28", price: 799 },
   { name: "Color Camo Bulklight", lastSeen: "2025-08-20", price: 799, image: "ColorCamoBulklight.png" },
