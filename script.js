@@ -21,7 +21,7 @@ const knobIcon = 'Knobs.webp';
 // ensures browsers fetch a fresh copy of data.json after deployment.  The
 // value below was updated on 2025‑08‑31 after embedding additional images
 // directly in data.json, updating fallback entries and tweaking styles.
-const DATA_VERSION = '2025-08-31d';
+const DATA_VERSION = '2025-08-31e';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -132,7 +132,9 @@ const fallbackData = [
   { name: "Basic Jade Flashlight", lastSeen: "2025-08-29", price: 499, image: "BasicJadeFlashlight.png" },
   // The Transluscent Shakelight image is embedded in data.json, so remove the image reference here
   { name: "Transluscent Shakelight", lastSeen: "2025-08-29", price: 799 },
-  { name: "Basic White Vitamins", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteVitamins.png" },
+  // Basic White Vitamins image is embedded directly in data.json. Remove the
+  // image field from the fallback entry so we don't reference a deleted file.
+  { name: "Basic White Vitamins", lastSeen: "2025-08-29", price: 499 },
   { name: "Basic White Lighter", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteLighter.png" },
  { name: "Retro Crucifix", lastSeen: "2025-08-30", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
   { name: "Retro Flashlight", lastSeen: "2025-08-30", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },

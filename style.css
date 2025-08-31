@@ -142,11 +142,20 @@ main {
  * consistent with the overall palette.
  */
 .category-title {
-  font-size: 1.7rem;
-  margin-bottom: 12px;
-  color: #c9d1d9;
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  /* Use a warm accent color similar to the in‑game UI for category labels */
+  color: #f2d3a0;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* Add a subtle background bar behind the label and round the corners.  The
+     linear gradient and padding mirror the aesthetic shown in the provided
+     screenshot, giving each section header a distinct, polished look. */
+  display: inline-block;
+  padding: 6px 12px;
+  background: linear-gradient(90deg, rgba(79, 49, 36, 0.9) 0%, rgba(48, 29, 23, 0.9) 100%);
+  border-radius: 10px;
 }
 
 .item-grid {
