@@ -21,7 +21,7 @@ const knobIcon = 'Knobs.webp';
 // ensures browsers fetch a fresh copy of data.json after deployment.  The
 // value below was updated on 2025‑08‑31 after embedding additional images
 // directly in data.json, updating fallback entries and tweaking styles.
-const DATA_VERSION = '2025-09-03a';
+const DATA_VERSION = '2025-09-04a';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -59,7 +59,7 @@ const fallbackData = [
   { name: "Basic Black Lighter", lastSeen: "2025-08-22", price: 499, image: "BasicBlackLighter.png" },
   { name: "Basic Green Lighter", lastSeen: "2025-08-30", price: 499, image: "BasicGreenLighter.png" },
   { name: "Basic Red Lighter", lastSeen: "2025-08-19", price: 499, image: "BasicRedLighter.png" },
-  { name: "Basic Orange Lighter", lastSeen: "2025-08-26", price: 499, image: "BasicOrangeLighter.png" },
+  { name: "Basic Orange Lighter", lastSeen: "2025-09-04", price: 499, image: "BasicOrangeLighter.png" },
   { name: "Basic Yellow Lighter", lastSeen: "2025-08-31", price: 499, image: "BasicYellowLighter.png" },
   { name: "Basic Pink Lighter", lastSeen: "2025-08-27", price: 499, image: "BasicPinkLighter.png" },
   { name: "Basic Red Vitamins", lastSeen: "2025-08-22", price: 499 },
@@ -77,7 +77,7 @@ const fallbackData = [
  { name: "Activated Crucifix", lastSeen: "2025-08-29", price: 1499, image: "ActivatedCrucifix.png" },
   { name: "Bob Skeleton Key", lastSeen: "2025-08-20", price: 1499 },
   { name: "Dread Alarm Clock", lastSeen: "2025-08-27", price: 1499, image: "DreadAlarmClock.png" },
-  { name: "Giggle Bulklight", lastSeen: "2025-08-31", price: 1499, image: "GiggleBulklight.png" },
+  { name: "Giggle Bulklight", lastSeen: "2025-09-04", price: 1499, image: "GiggleBulklight.png" },
  { name: "Hallowed Crucifix", lastSeen: "2025-08-30", price: 1499, image: "HallowedCrucifix.png" },
   { name: "Loca Cola Gween Soda", lastSeen: "2025-09-02", price: 1499, image: "LocaColaGweenSoda.png" },
   { name: "Makeshift Flashlight", lastSeen: "2025-09-03", price: 1499, image: "MakeshiftFlashlight.png" },
@@ -87,18 +87,18 @@ const fallbackData = [
   { name: "Sticks Crucifix", lastSeen: "2025-08-31", price: 1499, image: "SticksCrucifix.png" },
   { name: "DrakoBloxxer Flashlight", lastSeen: "2025-09-01", price: 2999, image: "DrakobloxxerFlashlight.png" },
   { name: "Figure Flashlight", lastSeen: "2025-09-03", price: 2999, image: "FigureFlashlight.png" },
-  { name: "3rd Anniversary Candle", lastSeen: "2025-09-03", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCandle.png" },
- { name: "3rd Anniversary Crucifix", lastSeen: "2025-09-03", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCrucifix.png" },
-  { name: "3rd Anniversary Flashlight", lastSeen: "2025-09-03", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryFlashlight.png" },
-  { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-09-03", price: "3 (3rd Anniversary Bundle)" },
+  { name: "3rd Anniversary Candle", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCandle.png" },
+ { name: "3rd Anniversary Crucifix", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCrucifix.png" },
+  { name: "3rd Anniversary Flashlight", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryFlashlight.png" },
+  { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)" },
  { name: "Ban Hammer Crucifix", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "BanHammerCrucifix.png" },
   { name: "Bloxy Cola Gween Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "BloxyColaGweenSoda.png" },
   { name: "D-Orb Lighter", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "DOrbLighter.png" },
   { name: "Gear Flashlight", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "GearFlashlight.png" },
-  { name: "Overgrown Alarm Clock", lastSeen: "2025-09-03", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
-  { name: "Overgrown Crucifix", lastSeen: "2025-09-03", price: "3999 (Overgrown Bundle)", image: "OvergrownCrucifix.png" },
-  { name: "Overgrown Flashlight", lastSeen: "2025-09-03", price: "3999 (Overgrown Bundle)", image: "OvergrownFlashlight.png" },
-  { name: "Overgrown Smoothie", lastSeen: "2025-09-03", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Alarm Clock", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
+  { name: "Overgrown Crucifix", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)", image: "OvergrownCrucifix.png" },
+  { name: "Overgrown Flashlight", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)", image: "OvergrownFlashlight.png" },
+  { name: "Overgrown Smoothie", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)" },
   { name: "Voxel Crucifix", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelCrucifix.png" },
   { name: "Voxel Flashlight", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelFlashlight.png" },
   { name: "Voxel Glowstick", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelGlowstick.png" },
@@ -109,10 +109,10 @@ const fallbackData = [
   { name: "Voxel Skeleton Key", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)" },
 
   // Newly added items on 2025-08-27
-  { name: "Makeshift Vitamins", lastSeen: "2025-08-27", price: 1499 },
+  { name: "Makeshift Vitamins", lastSeen: "2025-09-04", price: 1499 },
   { name: "Basic Pink Flashlight", lastSeen: "2025-08-27", price: 499, image: "BasicPinkFlashlight.png" },
   { name: "Basic White Shears", lastSeen: "2025-08-27", price: 499 },
-  { name: "Camo Lighter Skin", lastSeen: "2025-08-27", price: 799, image: "CamoLighter.png" },
+  { name: "Camo Lighter Skin", lastSeen: "2025-09-04", price: 799, image: "CamoLighter.png" },
   { name: "Basic Black Vitamins", lastSeen: "2025-08-31", price: 499 },
   // Newly added items on 2025-08-28
   // The Happy Sip Smoothie image is now embedded in data.json; remove the image
@@ -136,9 +136,9 @@ const fallbackData = [
   // image field from the fallback entry so we don't reference a deleted file.
   { name: "Basic White Vitamins", lastSeen: "2025-08-29", price: 499 },
   { name: "Basic White Lighter", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteLighter.png" },
- { name: "Retro Crucifix", lastSeen: "2025-09-03", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
-  { name: "Retro Flashlight", lastSeen: "2025-09-03", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
-  { name: "Retro Gween Soda", lastSeen: "2025-09-03", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" },
+ { name: "Retro Crucifix", lastSeen: "2025-09-04", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
+  { name: "Retro Flashlight", lastSeen: "2025-09-04", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
+  { name: "Retro Gween Soda", lastSeen: "2025-09-04", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" },
   { name: "Basic Purple Bulklight", lastSeen: "2025-08-30", price: 499, image: "BasicPurpleBulklight.png" },
   { name: "Color Camo Lighter", lastSeen: "2025-08-30", price: 799, image: "ColorCamoLighter.png" },
   { name: "Camo Flashlight", lastSeen: "2025-08-30", price: 799, image: "CamoFlashlight.png" }
@@ -146,7 +146,7 @@ const fallbackData = [
   // Newly added items on 2025‑08‑30 (flashlights and crucifix)
   { name: "Basic Cyan Flashlight", lastSeen: "2025-08-30", price: 499, image: "BasicCyanFlashlight.png" },
   { name: "Basic Orange Flashlight", lastSeen: "2025-08-30", price: 499, image: "BasicOrangeFlashlight.png" },
-  { name: "Transluscent Crucifix", lastSeen: "2025-08-17", price: 799, image: "TransluscentCrucifix.png" }
+  { name: "Transluscent Crucifix", lastSeen: "2025-09-04", price: 799, image: "TransluscentCrucifix.png" }
   ,
   // Newly added items on 2025‑08‑31 (vitamins)
   { name: "Basic Jade Vitamins", lastSeen: "2025-08-31", price: 499 },
@@ -164,7 +164,11 @@ const fallbackData = [
   { name: "Transluscent Vitamins", lastSeen: "2025-09-03", price: 799, image: "TransluscentVitamins.png" },
   { name: "Basic Black Flashlight", lastSeen: "2025-09-03", price: 499, image: "BasicBlackFlashlight.png" },
   { name: "Basic Black Bulklight", lastSeen: "2025-09-03", price: 499, image: "BasicBlackBulklight.png" },
-  { name: "Basic Purple Lockpick", lastSeen: "2025-09-03", price: 499, image: "BasicPurpleLockpick.png" }
+  { name: "Basic Purple Lockpick", lastSeen: "2025-09-03", price: 499, image: "BasicPurpleLockpick.png" },
+  // Newly added items on 2025-09-04
+  { name: "Basic Green Vitamins", lastSeen: "2025-09-04", price: 499, image: "BasicGreenVitamins.png" },
+  { name: "Basic Red Flashlight", lastSeen: "2025-09-04", price: 499, image: "BasicRedFlashlight.png" },
+  { name: "Basic Jade Bulklight", lastSeen: "2025-09-04", price: 499, image: "BasicJadeBulklight.png" }
 ];
 
 /**
@@ -245,6 +249,60 @@ function buildFilterChips(types) {
   });
 }
 
+// Build a dropdown menu for filtering items instead of using clickable chips.  The
+// dropdown includes options for showing all items, items seen today, the
+// oldest‑seen items, and each individual category.  Selecting an option
+// updates the global `activeType` state and re-renders the item list.
+function buildFilterSelect(types) {
+  const select = document.getElementById('filterSelect');
+  if (!select) return;
+  // Clear any existing options
+  select.innerHTML = '';
+  // Start with All, Today (mapped to Current) and Oldest filters
+  const labels = ['All', 'Today', 'Oldest', ...types];
+  labels.forEach(label => {
+    const opt = document.createElement('option');
+    // Map the Today option to the value 'Current' used internally
+    opt.value = (label === 'Today' ? 'Current' : label);
+    opt.textContent = label;
+    select.appendChild(opt);
+  });
+  // Set initial value based on current activeType
+  select.value = activeType;
+  // Update activeType and re-render items when the selection changes
+  select.addEventListener('change', () => {
+    activeType = select.value;
+    renderItems();
+  });
+}
+
+// Build the filter dropdown menu for selecting item categories and special views.
+// This replaces the previous chip-based filter UI.  The dropdown contains
+// options for "All" (show all items), "Today" (items currently in the shop),
+// "Oldest" (items that have been absent for the longest time) and then one
+// option for each item category.  When the selection changes the global
+// activeType state is updated and items are re-rendered.
+function buildFilterSelect(types) {
+  const select = document.getElementById('filterSelect');
+  if (!select) return;
+  select.innerHTML = '';
+  // Compose an array of labels. The "Today" label maps to the value
+  // "Current" internally to reuse existing logic for the current shop filter.
+  const labels = ['All', 'Today', 'Oldest', ...types];
+  labels.forEach(label => {
+    const opt = document.createElement('option');
+    opt.textContent = label;
+    opt.value = (label === 'Today' ? 'Current' : label);
+    select.appendChild(opt);
+  });
+  // Set the dropdown to reflect the current active type
+  select.value = activeType;
+  select.addEventListener('change', () => {
+    activeType = select.value;
+    renderItems();
+  });
+}
+
 // Helper to create a chip element
 function createChip(label, type) {
   const chip = document.createElement('div');
@@ -270,6 +328,11 @@ function renderItems() {
   const container = document.getElementById('itemsContainer');
   container.innerHTML = '';
   const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+  // Compute the maximum days since last seen across all items.  This is used
+  // for the "Oldest" filter to display only the items that have not appeared
+  // in the shop for the longest time.  Compute days for every item once
+  // outside the loop to avoid repeated calculations inside the filter.
+  const maxDays = Math.max(...itemsData.map(item => computeDaysSince(item.lastSeen)));
   // Group items by type
   const grouped = {};
   itemsData.forEach(item => {
@@ -280,6 +343,11 @@ function renderItems() {
     if (activeType === 'Current') {
       // Show only items seen today (computeDaysSince === 0)
       if (computeDaysSince(item.lastSeen) === 0 && nameMatch) {
+        include = true;
+      }
+    } else if (activeType === 'Oldest') {
+      // Show only items with the maximum days since last seen
+      if (computeDaysSince(item.lastSeen) === maxDays && nameMatch) {
         include = true;
       }
     } else if (activeType === 'All' || activeType === type) {
@@ -432,7 +500,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function initUI() {
   // Determine types
   const types = Array.from(new Set(itemsData.map(item => getItemType(item.name)))).sort((a, b) => a.localeCompare(b));
-  buildFilterChips(types);
+  // Replace the old chip-based filter UI with a dropdown menu
+  buildFilterSelect(types);
   renderItems();
   updateCountdown();
   setInterval(updateCountdown, 1000);

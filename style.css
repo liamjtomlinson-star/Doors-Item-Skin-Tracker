@@ -85,6 +85,54 @@ main {
   margin-bottom: 12px;
 }
 
+/* Style for the filter dropdown.  Match the search input styling so
+   controls appear cohesive.  The dropdown spans the full width on
+   narrow layouts and includes a subtle accent color when focused. */
+.filter-select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  outline: none;
+  margin-bottom: 12px;
+  appearance: none;
+}
+
+.filter-select:focus {
+  border-color: #58a6ff;
+}
+
+/* Style for the filter dropdown.  Match the dimensions and colours of the
+   search input for a cohesive look.  The dropdown spans the full width of
+   the controls section and uses the same dark background and border
+   treatment. */
+#filterSelect {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  outline: none;
+  margin-bottom: 12px;
+  appearance: none;
+  /* Add a subtle down-arrow indicator via a gradient so the user knows this is
+     a select element.  The transparent area ensures it doesn't clash with
+     text on different themes. */
+  background-image: linear-gradient(45deg, transparent 50%, #c9d1d9 50%), linear-gradient(135deg, #c9d1d9 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 3px), calc(100% - 15px) calc(50% - 3px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+
+#filterSelect:focus {
+  border-color: #58a6ff;
+}
+
 #searchInput::placeholder {
   color: #6e7681;
 }
