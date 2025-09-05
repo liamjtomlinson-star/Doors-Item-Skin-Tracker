@@ -25,7 +25,8 @@
       justify-content: center;
       text-align: center;
       min-height: 100vh;
-      background: url('background.png') no-repeat center center fixed;
+      /* Align hero background to the top center to match the body background positioning */
+      background: url('background.png') no-repeat center top fixed;
       background-size: cover;
       color: #c9d1d9;
       position: relative;
@@ -71,6 +72,20 @@
     }
     .cta-button:hover {
       background-color: #3fb657;
+    }
+
+    /* Style for the developer attribution message on the home page */
+    .developer-message {
+      margin-top: 12px;
+      font-size: 1rem;
+      color: #8b949e;
+    }
+    .developer-message a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+    .developer-message a:hover {
+      text-decoration: underline;
     }
     .features {
       display: flex;
@@ -119,6 +134,8 @@
     <div class="hero-content">
       <h1>Welcome to the DOORS Item Tracker</h1>
       <p>Stay up to date with the latest items in the DOORS daily shop. Our tracker organizes every item by category and shows when each skin was last available, all in a clean, modern interface.</p>
+      <!-- Developer attribution: clearly visible message with a link to the developer's X (Twitter) account -->
+      <p class="developer-message">Site developed and updated by <a href="https://x.com/Ship_43" target="_blank">@Ship_43 on X</a>.</p>
       <a href="items.html" class="cta-button">Browse Items</a>
     </div>
   </section>
