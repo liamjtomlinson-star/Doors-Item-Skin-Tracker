@@ -21,7 +21,7 @@ const knobIcon = 'Knobs.webp';
 // ensures browsers fetch a fresh copy of data.json after deployment.  The
 // value below was updated on 2025‑08‑31 after embedding additional images
 // directly in data.json, updating fallback entries and tweaking styles.
-const DATA_VERSION = '2025-09-04a';
+const DATA_VERSION = '2025-09-05a';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -63,7 +63,7 @@ const fallbackData = [
   { name: "Basic Yellow Lighter", lastSeen: "2025-08-31", price: 499, image: "BasicYellowLighter.png" },
   { name: "Basic Pink Lighter", lastSeen: "2025-08-27", price: 499, image: "BasicPinkLighter.png" },
   { name: "Basic Red Vitamins", lastSeen: "2025-08-22", price: 499 },
-  { name: "Basic Orange Shakelight", lastSeen: "2025-08-30", price: 799 },
+  { name: "Basic Orange Shakelight", lastSeen: "2025-09-05", price: 799 },
   { name: "Basic Pink Shakelight", lastSeen: "2025-08-17", price: 799 },
   { name: "Basic Red Shakelight", lastSeen: "2025-08-22", price: 799 },
   // Added Basic White and Blue Shakelights as new items; these use the new images
@@ -76,7 +76,7 @@ const fallbackData = [
   { name: "Transluscent Lockpick", lastSeen: "2025-09-01", price: 799 },
  { name: "Activated Crucifix", lastSeen: "2025-08-29", price: 1499, image: "ActivatedCrucifix.png" },
   { name: "Bob Skeleton Key", lastSeen: "2025-08-20", price: 1499 },
-  { name: "Dread Alarm Clock", lastSeen: "2025-08-27", price: 1499, image: "DreadAlarmClock.png" },
+  { name: "Dread Alarm Clock", lastSeen: "2025-09-05", price: 1499, image: "DreadAlarmClock.png" },
   { name: "Giggle Bulklight", lastSeen: "2025-09-04", price: 1499, image: "GiggleBulklight.png" },
  { name: "Hallowed Crucifix", lastSeen: "2025-08-30", price: 1499, image: "HallowedCrucifix.png" },
   { name: "Loca Cola Gween Soda", lastSeen: "2025-09-02", price: 1499, image: "LocaColaGweenSoda.png" },
@@ -85,20 +85,20 @@ const fallbackData = [
   { name: "Safety Scissors Shears", lastSeen: "2025-09-01", price: 1499 },
   // Sticks Crucifix now uses a new image file instead of the generic placeholder
   { name: "Sticks Crucifix", lastSeen: "2025-08-31", price: 1499, image: "SticksCrucifix.png" },
-  { name: "DrakoBloxxer Flashlight", lastSeen: "2025-09-01", price: 2999, image: "DrakobloxxerFlashlight.png" },
+  { name: "DrakoBloxxer Flashlight", lastSeen: "2025-09-05", price: 2999, image: "DrakobloxxerFlashlight.png" },
   { name: "Figure Flashlight", lastSeen: "2025-09-03", price: 2999, image: "FigureFlashlight.png" },
-  { name: "3rd Anniversary Candle", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCandle.png" },
- { name: "3rd Anniversary Crucifix", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCrucifix.png" },
-  { name: "3rd Anniversary Flashlight", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryFlashlight.png" },
-  { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-09-04", price: "3 (3rd Anniversary Bundle)" },
+  { name: "3rd Anniversary Candle", lastSeen: "2025-09-05", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCandle.png" },
+{ name: "3rd Anniversary Crucifix", lastSeen: "2025-09-05", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCrucifix.png" },
+  { name: "3rd Anniversary Flashlight", lastSeen: "2025-09-05", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryFlashlight.png" },
+  { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-09-05", price: "3 (3rd Anniversary Bundle)" },
  { name: "Ban Hammer Crucifix", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "BanHammerCrucifix.png" },
   { name: "Bloxy Cola Gween Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "BloxyColaGweenSoda.png" },
   { name: "D-Orb Lighter", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "DOrbLighter.png" },
   { name: "Gear Flashlight", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "GearFlashlight.png" },
-  { name: "Overgrown Alarm Clock", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
-  { name: "Overgrown Crucifix", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)", image: "OvergrownCrucifix.png" },
-  { name: "Overgrown Flashlight", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)", image: "OvergrownFlashlight.png" },
-  { name: "Overgrown Smoothie", lastSeen: "2025-09-04", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Alarm Clock", lastSeen: "2025-09-05", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
+  { name: "Overgrown Crucifix", lastSeen: "2025-09-05", price: "3999 (Overgrown Bundle)", image: "OvergrownCrucifix.png" },
+  { name: "Overgrown Flashlight", lastSeen: "2025-09-05", price: "3999 (Overgrown Bundle)", image: "OvergrownFlashlight.png" },
+  { name: "Overgrown Smoothie", lastSeen: "2025-09-05", price: "3999 (Overgrown Bundle)" },
   { name: "Voxel Crucifix", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelCrucifix.png" },
   { name: "Voxel Flashlight", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelFlashlight.png" },
   { name: "Voxel Glowstick", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelGlowstick.png" },
@@ -111,7 +111,7 @@ const fallbackData = [
   // Newly added items on 2025-08-27
   { name: "Makeshift Vitamins", lastSeen: "2025-09-04", price: 1499 },
   { name: "Basic Pink Flashlight", lastSeen: "2025-08-27", price: 499, image: "BasicPinkFlashlight.png" },
-  { name: "Basic White Shears", lastSeen: "2025-08-27", price: 499 },
+  { name: "Basic White Shears", lastSeen: "2025-09-05", price: 499 },
   { name: "Camo Lighter Skin", lastSeen: "2025-09-04", price: 799, image: "CamoLighter.png" },
   { name: "Basic Black Vitamins", lastSeen: "2025-08-31", price: 499 },
   // Newly added items on 2025-08-28
@@ -122,7 +122,7 @@ const fallbackData = [
   { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
   { name: "Basic Red Bulklight", lastSeen: "2025-08-28", price: 499, image: "BasicRedBulklight.png" },
   { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499, image: "BasicPurpleLighter.png" },
-  { name: "Basic Magenta Flashlight", lastSeen: "2025-08-31", price: 499, image: "BasicMagentaFlashlight.png" },
+  { name: "Basic Magenta Flashlight", lastSeen: "2025-09-05", price: 499, image: "BasicMagentaFlashlight.png" },
   { name: "Transluscent Lighter", lastSeen: "2025-08-28", price: 799, image: "TransluscentLighter.png" }
   ,
   // Newly added items on 2025-08-29
@@ -136,10 +136,10 @@ const fallbackData = [
   // image field from the fallback entry so we don't reference a deleted file.
   { name: "Basic White Vitamins", lastSeen: "2025-08-29", price: 499 },
   { name: "Basic White Lighter", lastSeen: "2025-08-29", price: 499, image: "BasicWhiteLighter.png" },
- { name: "Retro Crucifix", lastSeen: "2025-09-04", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
-  { name: "Retro Flashlight", lastSeen: "2025-09-04", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
-  { name: "Retro Gween Soda", lastSeen: "2025-09-04", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" },
-  { name: "Basic Purple Bulklight", lastSeen: "2025-08-30", price: 499, image: "BasicPurpleBulklight.png" },
+ { name: "Retro Crucifix", lastSeen: "2025-09-05", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
+  { name: "Retro Flashlight", lastSeen: "2025-09-05", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
+  { name: "Retro Gween Soda", lastSeen: "2025-09-05", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" },
+  { name: "Basic Purple Bulklight", lastSeen: "2025-09-05", price: 499, image: "BasicPurpleBulklight.png" },
   { name: "Color Camo Lighter", lastSeen: "2025-08-30", price: 799, image: "ColorCamoLighter.png" },
   { name: "Camo Flashlight", lastSeen: "2025-08-30", price: 799, image: "CamoFlashlight.png" }
   ,
@@ -161,6 +161,7 @@ const fallbackData = [
   ,
   // Newly added items on 2025-09-03
   { name: "Basic Purple Shears", lastSeen: "2025-09-03", price: 499 },
+  { name: "Basic Pink Shears", lastSeen: "2025-09-05", price: 499 },
   { name: "Transluscent Vitamins", lastSeen: "2025-09-03", price: 799, image: "TransluscentVitamins.png" },
   { name: "Basic Black Flashlight", lastSeen: "2025-09-03", price: 499, image: "BasicBlackFlashlight.png" },
   { name: "Basic Black Bulklight", lastSeen: "2025-09-03", price: 499, image: "BasicBlackBulklight.png" },
@@ -169,6 +170,7 @@ const fallbackData = [
   { name: "Basic Green Vitamins", lastSeen: "2025-09-04", price: 499, image: "BasicGreenVitamins.png" },
   { name: "Basic Red Flashlight", lastSeen: "2025-09-04", price: 499, image: "BasicRedFlashlight.png" },
   { name: "Basic Jade Bulklight", lastSeen: "2025-09-04", price: 499, image: "BasicJadeBulklight.png" }
+  , { name: "Transluscent Shears", lastSeen: "2025-09-05", price: 799, image: "TransluscentShears.png" }
 ];
 
 /**
@@ -258,8 +260,11 @@ function buildFilterSelect(types) {
   if (!select) return;
   // Clear any existing options
   select.innerHTML = '';
-  // Start with All, Today (mapped to Current) and Oldest filters
-  const labels = ['All', 'Today', 'Oldest', ...types];
+  // Build the list of filter labels. Exclude the "Oldest" option here so
+  // that sorting is controlled by the separate sort dropdown. Include
+  // "All" and "Today" (mapped internally to "Current") and append
+  // each category type.  Sorting is handled via the separate sort menu.
+  const labels = ['All', 'Today', ...types];
   labels.forEach(label => {
     const opt = document.createElement('option');
     // Map the Today option to the value 'Current' used internally
@@ -267,11 +272,39 @@ function buildFilterSelect(types) {
     opt.textContent = label;
     select.appendChild(opt);
   });
-  // Set initial value based on current activeType
+  // Set the dropdown to reflect the current activeType
   select.value = activeType;
   // Update activeType and re-render items when the selection changes
   select.addEventListener('change', () => {
     activeType = select.value;
+    renderItems();
+  });
+}
+
+// Build a dropdown menu for organizing items.  The sort dropdown allows the user
+// to choose between alphabetical order (A–Z) and oldest‑first order, which
+// sorts items by the number of days since they were last seen (descending).
+function buildSortSelect() {
+  const select = document.getElementById('sortSelect');
+  if (!select) return;
+  // Clear any existing options
+  select.innerHTML = '';
+  // Define the available sort modes.  The value property corresponds to
+  // internal constants used in renderItems().
+  const options = [
+    { value: 'Alphabetical', label: 'Alphabetical' },
+    { value: 'Oldest', label: 'Oldest First' }
+  ];
+  options.forEach(opt => {
+    const o = document.createElement('option');
+    o.value = opt.value;
+    o.textContent = opt.label;
+    select.appendChild(o);
+  });
+  // Set the dropdown to the current active sort
+  select.value = activeSort;
+  select.addEventListener('change', () => {
+    activeSort = select.value;
     renderItems();
   });
 }
@@ -286,12 +319,15 @@ function buildFilterSelect(types) {
   const select = document.getElementById('filterSelect');
   if (!select) return;
   select.innerHTML = '';
-  // Compose an array of labels. The "Today" label maps to the value
-  // "Current" internally to reuse existing logic for the current shop filter.
-  const labels = ['All', 'Today', 'Oldest', ...types];
+  // Compose the list of filter labels. Exclude the "Oldest" option here
+  // because sorting is handled separately via the sort dropdown. Include
+  // "All" to show all items and "Today" (mapped to "Current") to show
+  // only items currently in the shop. Then append each category type.
+  const labels = ['All', 'Today', ...types];
   labels.forEach(label => {
     const opt = document.createElement('option');
     opt.textContent = label;
+    // Map the Today label to the value "Current" used internally
     opt.value = (label === 'Today' ? 'Current' : label);
     select.appendChild(opt);
   });
@@ -328,59 +364,72 @@ function renderItems() {
   const container = document.getElementById('itemsContainer');
   container.innerHTML = '';
   const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-  // Compute the maximum days since last seen across all items.  This is used
-  // for the "Oldest" filter to display only the items that have not appeared
-  // in the shop for the longest time.  Compute days for every item once
-  // outside the loop to avoid repeated calculations inside the filter.
-  const maxDays = Math.max(...itemsData.map(item => computeDaysSince(item.lastSeen)));
-  // Group items by type
-  const grouped = {};
+  // Build a list of items that match the search term and active filter (category or Today).
+  const filteredItems = [];
   itemsData.forEach(item => {
     const type = getItemType(item.name);
     const nameMatch = item.name.toLowerCase().includes(searchTerm);
-    // Determine if item should be shown based on the active filter
-    let include = false;
+    if (!nameMatch) return;
     if (activeType === 'Current') {
-      // Show only items seen today (computeDaysSince === 0)
-      if (computeDaysSince(item.lastSeen) === 0 && nameMatch) {
-        include = true;
-      }
-    } else if (activeType === 'Oldest') {
-      // Show only items with the maximum days since last seen
-      if (computeDaysSince(item.lastSeen) === maxDays && nameMatch) {
-        include = true;
+      // Include only items seen today
+      if (computeDaysSince(item.lastSeen) === 0) {
+        filteredItems.push(item);
       }
     } else if (activeType === 'All' || activeType === type) {
-      if (nameMatch) {
-        include = true;
-      }
-    }
-    if (include) {
-      if (!grouped[type]) grouped[type] = [];
-      grouped[type].push(item);
+      filteredItems.push(item);
     }
   });
-  // Sort types alphabetically
-  const sortedTypes = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
-  sortedTypes.forEach(type => {
-    const section = document.createElement('div');
-    section.className = 'category';
-    // Category title
-    const title = document.createElement('h3');
-    title.className = 'category-title';
-    title.textContent = type;
-    section.appendChild(title);
-    // Sort items alphabetically within category
-    grouped[type].sort((a, b) => a.name.localeCompare(b.name));
-    const grid = document.createElement('div');
-    grid.className = 'item-grid';
-    grouped[type].forEach(item => {
-      const card = createItemCard(item);
-      grid.appendChild(card);
+  // Sort the filtered items according to the selected sort order.  The default
+  // alphabetical sort sorts by item name A–Z, while the "Oldest" sort orders
+  // items by days since last seen (descending) so that the items that have
+  // been absent from the shop the longest appear first.
+  if (activeSort === 'Oldest') {
+    filteredItems.sort((a, b) => computeDaysSince(b.lastSeen) - computeDaysSince(a.lastSeen));
+    // When sorting by oldest, display all items in a single list rather than
+    // grouping by category.  Create a single category section labeled
+    // "All Items" and render every card inside.
+    if (filteredItems.length > 0) {
+      const section = document.createElement('div');
+      section.className = 'category';
+      const title = document.createElement('h3');
+      title.className = 'category-title';
+      title.textContent = 'All Items';
+      section.appendChild(title);
+      const grid = document.createElement('div');
+      grid.className = 'item-grid';
+      filteredItems.forEach(item => {
+        grid.appendChild(createItemCard(item));
+      });
+      section.appendChild(grid);
+      container.appendChild(section);
+    }
+  } else {
+    // Alphabetical: group items by type and sort categories and items by name
+    const grouped = {};
+    filteredItems.forEach(item => {
+      const t = getItemType(item.name);
+      if (!grouped[t]) grouped[t] = [];
+      grouped[t].push(item);
     });
-    section.appendChild(grid);
-    container.appendChild(section);
-  });
+    const sortedTypes = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
+    sortedTypes.forEach(type => {
+      const section = document.createElement('div');
+      section.className = 'category';
+      const title = document.createElement('h3');
+      title.className = 'category-title';
+      title.textContent = type;
+      section.appendChild(title);
+      // Sort items by name within the category
+      grouped[type].sort((a, b) => a.name.localeCompare(b.name));
+      const grid = document.createElement('div');
+      grid.className = 'item-grid';
+      grouped[type].forEach(item => {
+        grid.appendChild(createItemCard(item));
+      });
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+  }
 }
 
 // Create a card element for an item
@@ -500,8 +549,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function initUI() {
   // Determine types
   const types = Array.from(new Set(itemsData.map(item => getItemType(item.name)))).sort((a, b) => a.localeCompare(b));
-  // Replace the old chip-based filter UI with a dropdown menu
+  // Replace the old chip-based filter UI with dropdown menus. Build the
+  // filter select and the sort select, then render items.  Sorting is
+  // handled separately from filtering so users can choose how items are
+  // ordered independent of which category is selected.
   buildFilterSelect(types);
+  buildSortSelect();
   renderItems();
   updateCountdown();
   setInterval(updateCountdown, 1000);
@@ -509,3 +562,7 @@ function initUI() {
 
 // Active type state
 let activeType = 'All';
+// Active sort state. Determines how items are ordered when displayed.
+// The default is alphabetical, which sorts items A–Z. The alternate value
+// "Oldest" sorts items by the longest time since they were last seen.
+let activeSort = 'Alphabetical';

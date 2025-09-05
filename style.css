@@ -103,6 +103,31 @@ main {
   appearance: none;
 }
 
+/* Style for the sort dropdown. Match the filter select styling so that
+   both controls appear cohesive. This dropdown also spans the full
+   width of the controls section on narrow layouts and uses the same
+   dark background, border and arrow indicator. */
+.sort-select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  outline: none;
+  margin-bottom: 12px;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #c9d1d9 50%),
+    linear-gradient(135deg, #c9d1d9 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(50% - 3px), calc(100% - 15px) calc(50% - 3px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.sort-select:focus {
+  border-color: #58a6ff;
+}
+
 .filter-select:focus {
   border-color: #58a6ff;
 }
