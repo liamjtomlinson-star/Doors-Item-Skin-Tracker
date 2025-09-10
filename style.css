@@ -4,16 +4,37 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   /* Use the uploaded image as the page background. The image will cover the entire
-     viewport and stay fixed while scrolling. */
-  /* Adjusted background positioning to ensure the image isn't offset at the bottom.
-     Position the image at the top center so it aligns neatly without a visible gap. */
-  background: url('background.png') no-repeat center top fixed;
+     viewport and stay centered.  Using background-size: cover ensures the image scales to
+     fill the viewport on wide monitors, tablets and phones without distortion.  The
+     attachment is fixed on desktop for a subtle parallax effect and disabled on small
+     screens for better performance. */
+  background: url('background.png') no-repeat center center fixed;
   background-size: cover;
   color: #c9d1d9;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* On smaller devices (e.g., tablets and phones), disable the fixed attachment to avoid
+   rendering issues and battery drain in mobile browsers. */
+@media (max-width: 1024px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* iOS Safari does not fully support fixed backgrounds; override to scroll for a smoother
+   experience.  This feature query targets WebKit-based browsers. */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 header {

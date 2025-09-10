@@ -25,11 +25,25 @@
       justify-content: center;
       text-align: center;
       min-height: 100vh;
-      /* Align hero background to the top center to match the body background positioning */
-      background: url('background.png') no-repeat center top fixed;
+      /* Align the hero background centrally and allow it to scale with the viewport.
+         We mirror the body background properties here so the image is centered and
+         fills the hero area on all screens. */
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
       color: #c9d1d9;
       position: relative;
+    }
+    /* Disable fixed background on smaller devices for smoother scrolling and to avoid the iOS
+       zoom effect on fixed elements. */
+    @media (max-width: 1024px) {
+      .hero {
+        background-attachment: scroll;
+      }
+    }
+    @supports (-webkit-touch-callout: none) {
+      .hero {
+        background-attachment: scroll;
+      }
     }
     .hero-overlay {
       position: absolute;
