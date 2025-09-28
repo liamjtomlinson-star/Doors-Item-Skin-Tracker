@@ -26,7 +26,9 @@ const knobIcon = 'Knobs.webp';
 // 2025‑09‑10 after refreshing lastSeen dates and adding new items for the 9/10 shop rotation.
 // Update the data version to ensure browsers fetch the latest data when the shop resets
 // Bump data version to ensure the latest shop reset (2025‑09‑18) is used
-const DATA_VERSION = '2025-09-19a';
+// Bumped data version to reflect the 2025‑09‑27 shop reset.  Changing this
+// value forces browsers to reload the updated data.json and fallback lists.
+const DATA_VERSION = '2025-09-27a';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -68,7 +70,7 @@ const fallbackData = [
   { name: "Basic Red Lighter", lastSeen: "2025-08-19", price: 499, image: "BasicRedLighter.png" },
   { name: "Basic Orange Lighter", lastSeen: "2025-09-04", price: 499, image: "BasicOrangeLighter.png" },
   { name: "Basic Yellow Lighter", lastSeen: "2025-09-15", price: 499, image: "BasicYellowLighter.png" },
-  { name: "Basic Pink Lighter", lastSeen: "2025-09-13", price: 499, image: "BasicPinkLighter.png" },
+  { name: "Basic Pink Lighter", lastSeen: "2025-09-27", price: 499, image: "BasicPinkLighter.png" },
   { name: "Basic Red Vitamins", lastSeen: "2025-08-22", price: 499 },
   { name: "Basic Orange Shakelight", lastSeen: "2025-09-11", price: 799 },
   { name: "Basic Pink Shakelight", lastSeen: "2025-09-18", price: 799 },
@@ -96,18 +98,18 @@ const fallbackData = [
   { name: "Sticks Crucifix", lastSeen: "2025-09-14", price: 1499, image: "SticksCrucifix.png" },
   { name: "DrakoBloxxer Flashlight", lastSeen: "2025-09-15", price: 2999, image: "DrakobloxxerFlashlight.png" },
   { name: "Figure Flashlight", lastSeen: "2025-09-03", price: 2999, image: "FigureFlashlight.png" },
-  { name: "3rd Anniversary Candle", lastSeen: "2025-09-19", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCandle.png" },
-  { name: "3rd Anniversary Crucifix", lastSeen: "2025-09-19", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCrucifix.png" },
-  { name: "3rd Anniversary Flashlight", lastSeen: "2025-09-19", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryFlashlight.png" },
-  { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-09-19", price: "3 (3rd Anniversary Bundle)" },
+  { name: "3rd Anniversary Candle", lastSeen: "2025-09-26", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCandle.png" },
+  { name: "3rd Anniversary Crucifix", lastSeen: "2025-09-26", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryCrucifix.png" },
+  { name: "3rd Anniversary Flashlight", lastSeen: "2025-09-26", price: "3 (3rd Anniversary Bundle)", image: "3rdAnniversaryFlashlight.png" },
+  { name: "3rd Anniversary Moonlight Candle", lastSeen: "2025-09-26", price: "3 (3rd Anniversary Bundle)" },
  { name: "Ban Hammer Crucifix", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "BanHammerCrucifix.png" },
   { name: "Bloxy Cola Gween Soda", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "BloxyColaGweenSoda.png" },
   { name: "D-Orb Lighter", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "DOrbLighter.png" },
   { name: "Gear Flashlight", lastSeen: "2025-08-21", price: "3999 (Classic Gear Bundle)", image: "GearFlashlight.png" },
-  { name: "Overgrown Alarm Clock", lastSeen: "2025-09-19", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
-  { name: "Overgrown Crucifix", lastSeen: "2025-09-19", price: "3999 (Overgrown Bundle)", image: "OvergrownCrucifix.png" },
-  { name: "Overgrown Flashlight", lastSeen: "2025-09-19", price: "3999 (Overgrown Bundle)", image: "OvergrownFlashlight.png" },
-  { name: "Overgrown Smoothie", lastSeen: "2025-09-19", price: "3999 (Overgrown Bundle)" },
+  { name: "Overgrown Alarm Clock", lastSeen: "2025-09-26", price: "3999 (Overgrown Bundle)", image: "OvergrownAlarmClock.png" },
+  { name: "Overgrown Crucifix", lastSeen: "2025-09-26", price: "3999 (Overgrown Bundle)", image: "OvergrownCrucifix.png" },
+  { name: "Overgrown Flashlight", lastSeen: "2025-09-26", price: "3999 (Overgrown Bundle)", image: "OvergrownFlashlight.png" },
+  { name: "Overgrown Smoothie", lastSeen: "2025-09-26", price: "3999 (Overgrown Bundle)" },
   { name: "Voxel Crucifix", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelCrucifix.png" },
   { name: "Voxel Flashlight", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelFlashlight.png" },
   { name: "Voxel Glowstick", lastSeen: "2025-08-28", price: "4999 (Voxel Bundle)", image: "VoxelGlowstick.png" },
@@ -129,7 +131,7 @@ const fallbackData = [
   { name: "Happy Sip Smoothie", lastSeen: "2025-09-17", price: 1499 },
   // Basic Orange Shears has its image embedded directly in data.json
   { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
-  { name: "Basic Red Bulklight", lastSeen: "2025-09-17", price: 499, image: "BasicRedBulklight.png" },
+  { name: "Basic Red Bulklight", lastSeen: "2025-09-27", price: 499, image: "BasicRedBulklight.png" },
   { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499, image: "BasicPurpleLighter.png" },
   { name: "Basic Magenta Flashlight", lastSeen: "2025-09-10", price: 499, image: "BasicMagentaFlashlight.png" },
   { name: "Transluscent Lighter", lastSeen: "2025-08-28", price: 799, image: "TransluscentLighter.png" }
@@ -138,16 +140,16 @@ const fallbackData = [
   // Basic Pink Straplight image is embedded directly in data.json.  Remove the
   // image field from the fallback entry so we don't reference a removed file.
   { name: "Basic Pink Straplight", lastSeen: "2025-09-16", price: 499 },
-  { name: "Basic Jade Flashlight", lastSeen: "2025-09-19", price: 499, image: "BasicJadeFlashlight.png" },
+  { name: "Basic Jade Flashlight", lastSeen: "2025-09-27", price: 499, image: "BasicJadeFlashlight.png" },
   // The Transluscent Shakelight image is embedded in data.json, so remove the image reference here
   { name: "Transluscent Shakelight", lastSeen: "2025-08-29", price: 799 },
   // Basic White Vitamins image is embedded directly in data.json. Remove the
   // image field from the fallback entry so we don't reference a deleted file.
   { name: "Basic White Vitamins", lastSeen: "2025-09-08", price: 499 },
   { name: "Basic White Lighter", lastSeen: "2025-09-17", price: 499, image: "BasicWhiteLighter.png" },
-  { name: "Retro Crucifix", lastSeen: "2025-09-19", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
-  { name: "Retro Flashlight", lastSeen: "2025-09-19", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
-  { name: "Retro Gween Soda", lastSeen: "2025-09-19", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" },
+  { name: "Retro Crucifix", lastSeen: "2025-09-26", price: "1499 (Retro Bundle)", image: "RetroCrucifix.png" },
+  { name: "Retro Flashlight", lastSeen: "2025-09-26", price: "1499 (Retro Bundle)", image: "RetroFlashlight.png" },
+  { name: "Retro Gween Soda", lastSeen: "2025-09-26", price: "1499 (Retro Bundle)", image: "RetroGweenSoda.png" },
   { name: "Basic Purple Bulklight", lastSeen: "2025-09-05", price: 499, image: "BasicPurpleBulklight.png" },
   { name: "Color Camo Lighter", lastSeen: "2025-09-15", price: 799, image: "ColorCamoLighter.png" },
   { name: "Camo Flashlight", lastSeen: "2025-09-15", price: 799, image: "CamoFlashlight.png" }
@@ -158,7 +160,7 @@ const fallbackData = [
   { name: "Transluscent Crucifix", lastSeen: "2025-09-12", price: 799, image: "TransluscentCrucifix.png" }
   ,
   // Newly added items on 2025‑08‑31 (vitamins)
-  { name: "Basic Jade Vitamins", lastSeen: "2025-08-31", price: 499 },
+  { name: "Basic Jade Vitamins", lastSeen: "2025-09-27", price: 499 },
   { name: "Basic Magenta Vitamins", lastSeen: "2025-09-17", price: 499 },
   // Newly added items on 2025-09-01
   { name: "Basic Red Straplight", lastSeen: "2025-09-01", price: 499 },
@@ -169,7 +171,7 @@ const fallbackData = [
   { name: "Basic Magenta Shears", lastSeen: "2025-09-11", price: 499 }
   ,
   // Newly added items on 2025-09-03
-  { name: "Basic Purple Shears", lastSeen: "2025-09-08", price: 499 },
+  { name: "Basic Purple Shears", lastSeen: "2025-09-27", price: 499 },
   { name: "Basic Pink Shears", lastSeen: "2025-09-05", price: 499 },
   { name: "Transluscent Vitamins", lastSeen: "2025-09-17", price: 799, image: "TransluscentVitamins.png" },
   { name: "Basic Black Flashlight", lastSeen: "2025-09-12", price: 499, image: "BasicBlackFlashlight.png" },
@@ -208,6 +210,14 @@ const fallbackData = [
   { name: "Basic Black Shears", lastSeen: "2025-09-14", price: 499 },
   // Newly added item on 2025-09-16
   { name: "Basic Magenta Straplight", lastSeen: "2025-09-16", price: 499, image: "BasicMagentaStraplight.png" }
+  ,
+  // Newly added items on 2025-09-27
+  { name: "L Crucifix Skin", lastSeen: "2025-09-27", price: 499 },
+  { name: "Flame Gold Blaster", lastSeen: "2025-09-27", price: 1499, image: "FlameGoldBlaster.png" },
+  { name: "French Fries Bandage Pack", lastSeen: "2025-09-27", price: 4199, image: "FrenchFriesBandagePack.png" },
+  { name: "Powerup Crucifix", lastSeen: "2025-09-27", price: "2499 (Powerup Bundle)", image: "PowerupCrucifix.png" },
+  { name: "Powerup Flashlight", lastSeen: "2025-09-27", price: "2499 (Powerup Bundle)", image: "PowerupFlashlight.png" },
+  { name: "Powerup Gold Blaster", lastSeen: "2025-09-27", price: "2499 (Powerup Bundle)", image: "PowerupGoldBlaster.png" }
 ];
 
 /**
@@ -225,6 +235,9 @@ function getItemType(name) {
   // Special case: treat "gween soda" as its own type before generic categories
   if (lower.includes('gween soda')) return 'Gween Soda';
   if (lower.includes('candle')) return 'Candle';
+  // New categories for special items
+  if (lower.includes('gold blaster')) return 'Gold Blaster';
+  if (lower.includes('bandage pack')) return 'Bandage Pack';
   if (lower.includes('crucifix')) return 'Crucifix';
   // Treat "straplight" or "stratplight" variants as their own type before checking for flashlight
   if (lower.includes('straplight') || lower.includes('stratplight')) return 'Straplight';
