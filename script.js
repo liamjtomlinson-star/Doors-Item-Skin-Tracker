@@ -28,7 +28,8 @@ const knobIcon = 'Knobs.webp';
 // Bump data version to ensure the latest shop reset (2025‑09‑18) is used
 // Bumped data version to reflect the 2025‑09‑27 shop reset.  Changing this
 // value forces browsers to reload the updated data.json and fallback lists.
-const DATA_VERSION = '2025-09-27a';
+// Update DATA_VERSION to ensure browsers fetch the latest data and fallback definitions.
+const DATA_VERSION = '2025-09-28a';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -82,7 +83,7 @@ const fallbackData = [
   { name: "Basic Yellow Shakelight", lastSeen: "2025-09-16", price: 799 },
   { name: "Camo Vitamins", lastSeen: "2025-08-19", price: 799 },
   { name: "Color Camo Vitamins", lastSeen: "2025-09-06", price: 799 },
-  { name: "Color Camo Bulklight", lastSeen: "2025-08-20", price: 799, image: "ColorCamoBulklight.png" },
+  { name: "Color Camo Bulklight", lastSeen: "2025-09-28", price: 799, image: "ColorCamoBulklight.png" },
   { name: "Translucent Bulklight", lastSeen: "2025-08-18", price: 799, image: "TranslucentBulklight.png" },
   { name: "Transluscent Lockpick", lastSeen: "2025-09-01", price: 799 },
  { name: "Activated Crucifix", lastSeen: "2025-09-16", price: 1499, image: "ActivatedCrucifix.png" },
@@ -124,7 +125,7 @@ const fallbackData = [
   { name: "Basic Pink Flashlight", lastSeen: "2025-08-27", price: 499, image: "BasicPinkFlashlight.png" },
   { name: "Basic White Shears", lastSeen: "2025-09-15", price: 499 },
   { name: "Camo Lighter Skin", lastSeen: "2025-09-18", price: 799, image: "CamoLighter.png" },
-  { name: "Basic Black Vitamins", lastSeen: "2025-09-19", price: 499 },
+  { name: "Basic Black Vitamins", lastSeen: "2025-09-28", price: 499 },
   // Newly added items on 2025-08-28
   // The Happy Sip Smoothie image is now embedded in data.json; remove the image
   // property here so the fallback doesn't refer to a deleted file.
@@ -132,7 +133,7 @@ const fallbackData = [
   // Basic Orange Shears has its image embedded directly in data.json
   { name: "Basic Orange Shears", lastSeen: "2025-08-28", price: 499 },
   { name: "Basic Red Bulklight", lastSeen: "2025-09-27", price: 499, image: "BasicRedBulklight.png" },
-  { name: "Basic Purple Lighter", lastSeen: "2025-08-28", price: 499, image: "BasicPurpleLighter.png" },
+  { name: "Basic Purple Lighter", lastSeen: "2025-09-28", price: 499, image: "BasicPurpleLighter.png" },
   { name: "Basic Magenta Flashlight", lastSeen: "2025-09-10", price: 499, image: "BasicMagentaFlashlight.png" },
   { name: "Transluscent Lighter", lastSeen: "2025-08-28", price: 799, image: "TransluscentLighter.png" }
   ,
@@ -157,7 +158,7 @@ const fallbackData = [
   // Newly added items on 2025‑08‑30 (flashlights and crucifix)
   { name: "Basic Cyan Flashlight", lastSeen: "2025-09-12", price: 499, image: "BasicCyanFlashlight.png" },
   { name: "Basic Orange Flashlight", lastSeen: "2025-09-06", price: 499, image: "BasicOrangeFlashlight.png" },
-  { name: "Transluscent Crucifix", lastSeen: "2025-09-12", price: 799, image: "TransluscentCrucifix.png" }
+  { name: "Transluscent Crucifix", lastSeen: "2025-09-28", price: 799, image: "TransluscentCrucifix.png" }
   ,
   // Newly added items on 2025‑08‑31 (vitamins)
   { name: "Basic Jade Vitamins", lastSeen: "2025-09-27", price: 499 },
@@ -192,7 +193,7 @@ const fallbackData = [
   { name: "Transluscent Flashlight", lastSeen: "2025-09-09", price: 799, image: "TransluscentFlashlight.png" },
   // Newly added items on 2025-09-09
   { name: "Basic Green Straplight", lastSeen: "2025-09-09", price: 499, image: "BasicGreenStraplight.png" },
-  { name: "Basic White Bulklight", lastSeen: "2025-09-09", price: 499, image: "BasicWhiteBulklight.png" },
+  { name: "Basic White Bulklight", lastSeen: "2025-09-28", price: 499, image: "BasicWhiteBulklight.png" },
   { name: "Camo Bulklight", lastSeen: "2025-09-17", price: 799, image: "CamoBulklight.png" },
   { name: "Basic Green Flashlight", lastSeen: "2025-09-16", price: 499, image: "BasicGreenFlashlight.png" },
   { name: "Color Camo Flashlight", lastSeen: "2025-09-10", price: 799, image: "ColorCamoFlashlight.png" }
@@ -215,9 +216,13 @@ const fallbackData = [
   { name: "L Crucifix Skin", lastSeen: "2025-09-27", price: 499 },
   { name: "Flame Gold Blaster", lastSeen: "2025-09-27", price: 1499, image: "FlameGoldBlaster.png" },
   { name: "French Fries Bandage Pack", lastSeen: "2025-09-27", price: 4199, image: "FrenchFriesBandagePack.png" },
-  { name: "Powerup Crucifix", lastSeen: "2025-09-27", price: "2499 (Powerup Bundle)", image: "PowerupCrucifix.png" },
-  { name: "Powerup Flashlight", lastSeen: "2025-09-27", price: "2499 (Powerup Bundle)", image: "PowerupFlashlight.png" },
-  { name: "Powerup Gold Blaster", lastSeen: "2025-09-27", price: "2499 (Powerup Bundle)", image: "PowerupGoldBlaster.png" }
+  { name: "Powerup Crucifix", lastSeen: "2025-09-28", price: "2499 (Powerup Bundle)", image: "PowerupCrucifix.png" },
+  { name: "Powerup Flashlight", lastSeen: "2025-09-28", price: "2499 (Powerup Bundle)", image: "PowerupFlashlight.png" },
+  { name: "Powerup Gold Blaster", lastSeen: "2025-09-28", price: "2499 (Powerup Bundle)", image: "PowerupGoldBlaster.png" },
+  { name: "Holy Handgun Gold Blaster", lastSeen: "2025-09-28", price: 2999, image: "HolyHandgunGoldBlaster.png" },
+  { name: "Crayons Bandage Pack", lastSeen: "2025-09-28", price: 799, image: "CrayonsBandagePack.png" },
+  { name: "Basic Red Shears", lastSeen: "2025-09-28", price: 499, image: "BasicRedShears.png" },
+  { name: "L Crucifix", lastSeen: "2025-09-28", price: 1499, image: "LCrucifix.png" }
 ];
 
 /**
