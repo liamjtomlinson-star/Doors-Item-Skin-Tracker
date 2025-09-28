@@ -29,7 +29,7 @@ const knobIcon = 'Knobs.webp';
 // Bumped data version to reflect the 2025‑09‑27 shop reset.  Changing this
 // value forces browsers to reload the updated data.json and fallback lists.
 // Update DATA_VERSION to ensure browsers fetch the latest data and fallback definitions.
-const DATA_VERSION = '2025-09-28a';
+const DATA_VERSION = '2025-09-28b';
 
 let itemsData = [];
 // Base64 image for Camo Lighter Skin.
@@ -213,7 +213,6 @@ const fallbackData = [
   { name: "Basic Magenta Straplight", lastSeen: "2025-09-16", price: 499, image: "BasicMagentaStraplight.png" }
   ,
   // Newly added items on 2025-09-27
-  { name: "L Crucifix Skin", lastSeen: "2025-09-27", price: 499 },
   { name: "Flame Gold Blaster", lastSeen: "2025-09-27", price: 1499, image: "FlameGoldBlaster.png" },
   { name: "French Fries Bandage Pack", lastSeen: "2025-09-27", price: 4199, image: "FrenchFriesBandagePack.png" },
   { name: "Powerup Crucifix", lastSeen: "2025-09-28", price: "2499 (Powerup Bundle)", image: "PowerupCrucifix.png" },
